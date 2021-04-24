@@ -25,22 +25,22 @@ class RegisterPageActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             if (nameAndSurname.text.toString().isEmpty()) {
-                nameAndSurname.hint = getString(R.string.hint)
+                nameAndSurname.hint = getString(R.string.empty_field_error)
                 nameAndSurname.setHintTextColor(Color.RED)
             }
 
             if (email.text.toString().isEmpty()) {
-                email.hint = getString(R.string.hint)
+                email.hint = getString(R.string.empty_field_error)
                 email.setHintTextColor(Color.RED)
             }
 
             if (password.text.toString().isEmpty()) {
-                password.hint = getString(R.string.hint)
+                password.hint = getString(R.string.empty_field_error)
                 password.setHintTextColor(Color.RED)
             }
 
             if (confirmPassword.text.toString().isEmpty()) {
-                confirmPassword.hint = getString(R.string.hint)
+                confirmPassword.hint = getString(R.string.empty_field_error)
                 confirmPassword.setHintTextColor(Color.RED)
             }
 

@@ -28,12 +28,12 @@ class AuthPageActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             if (login.text.toString().isEmpty()) {
-                login.hint = getString(R.string.hint)
+                login.hint = getString(R.string.empty_field_error)
                 login.setHintTextColor(Color.RED)
             }
 
             if (password.text.toString().isEmpty()) {
-                password.hint = getString(R.string.hint)
+                password.hint = getString(R.string.empty_field_error)
                 password.setHintTextColor(Color.RED)
             }
 

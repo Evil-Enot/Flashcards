@@ -12,6 +12,6 @@
     <string name="confirm_registration">Confirm registration</string>
     <string name="registration_title">Registration</string>
     <string name="name_surname_title">Enter your Name and Surname</string>
-    <string name="hint">This field must be filled</string>
+    <string name="empty_field_error">This field must be filled</string>
     <string name="password_missmatch">Password mismatch</string>
 </resources>
