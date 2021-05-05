@@ -61,5 +61,21 @@
         android:label="CallbackPageFragment"
         tools:layout="@layout/callback_page"/>
 
+    <fragment
+        android:id="@+id/addNewCommunityPageFragment"
+        android:name="com.example.flashcards.fragments.AddNewCommunityPageFragment"
+        android:label="AddNewCommunityPageFragment"
+        tools:layout="@layout/add_new_community_page"/>
+
+    <fragment
+        android:id="@+id/to_user_communities"
+        android:name="com.example.flashcards.fragments.UserCommunitiesPageFragment"
+        android:label="UserCommunitiesPageFragment"
+        tools:layout="@layout/user_communitites_page">
+        <action
+            android:id="@+id/action_userCommunitiesPageFragment_to_addNewCommunityPageFragment"
+            app:destination="@id/addNewCommunityPageFragment" />
+    </fragment>
+
 
 </navigation>

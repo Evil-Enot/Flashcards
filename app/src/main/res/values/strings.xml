@@ -24,4 +24,5 @@
     <string name="main_page_menu_item">Main page</string>
     <string name="image_button_add_new_group">Add new group</string>
     <string name="image_button_add_friend">Add friend</string>
+    <string name="image_button_add_new_community">Add new community</string>
 </resources>
