@@ -10,9 +10,34 @@
         android:name="com.example.flashcards.fragments.MainPageFragment"
         android:label="MainPageActivity"
         tools:layout="@layout/main_page" />
+
     <fragment
         android:id="@+id/to_profile"
         android:name="com.example.flashcards.fragments.ProfilePageFragment"
         android:label="ProfilePageFragment"
         tools:layout="@layout/profile_page" />
+
+    <fragment
+        android:id="@+id/to_user_groups"
+        android:name="com.example.flashcards.fragments.UserGroupsPageFragment"
+        android:label="UserGroupsPageFragment"
+        tools:layout="@layout/user_groups_page">
+        <action
+            android:id="@+id/action_to_user_groups_to_addNewGroupPageFragment"
+            app:destination="@id/addNewGroupPageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewGroupPageFragment"
+        android:name="com.example.flashcards.fragments.AddNewGroupPageFragment"
+        android:label="AddNewGroupPageFragment"
+        tools:layout="@layout/add_new_group_page"/>
+
+    <fragment
+        android:id="@+id/groupPageFragment"
+        android:name="com.example.flashcards.fragments.GroupPageFragment"
+        android:label="GroupPageFragment"
+        tools:layout="@layout/group_page"/>
+
+
 </navigation>
