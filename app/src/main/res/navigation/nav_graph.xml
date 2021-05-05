@@ -39,5 +39,27 @@
         android:label="GroupPageFragment"
         tools:layout="@layout/group_page"/>
 
+    <fragment
+        android:id="@+id/to_friends"
+        android:name="com.example.flashcards.fragments.FriendsPageFragment"
+        android:label="FriendsPageFragment"
+        tools:layout="@layout/friends_page">
+        <action
+            android:id="@+id/action_to_friends_to_addFriendPageFragment"
+            app:destination="@id/addFriendPageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFriendPageFragment"
+        android:name="com.example.flashcards.fragments.AddFriendPageFragment"
+        android:label="AddFriendPageFragment"
+        tools:layout="@layout/add_friend_page"/>
+
+    <fragment
+        android:id="@+id/to_callback"
+        android:name="com.example.flashcards.fragments.CallbackPageFragment"
+        android:label="CallbackPageFragment"
+        tools:layout="@layout/callback_page"/>
+
 
 </navigation>
