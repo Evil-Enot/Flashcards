@@ -6,7 +6,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
