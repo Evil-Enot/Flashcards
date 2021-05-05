@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flashcards.fragments.MainPageFragment
 
 class RegisterPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +47,11 @@ class RegisterPageActivity : AppCompatActivity() {
 
             if (confirmPassword.text.toString() != password.text.toString()) {
                 val toast =
-                        Toast.makeText(applicationContext, getString(R.string.password_missmatch), Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.password_missmatch),
+                        Toast.LENGTH_SHORT
+                    )
                 toast.show()
             }
 
@@ -57,7 +62,7 @@ class RegisterPageActivity : AppCompatActivity() {
                 && confirmPassword.text.toString() == password.text.toString()
             ) {
                 sharedPreferences.edit().putBoolean("Success", true).apply()
-                val intent = Intent(this, MainPageActivity::class.java)
+                val intent = Intent(this, MainPageFragment::class.java)
                 startActivity(intent)
             }
         }

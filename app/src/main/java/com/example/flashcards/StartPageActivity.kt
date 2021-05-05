@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flashcards.fragments.MainPageFragment
 
 class StartPageActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class StartPageActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
 
         if (sharedPreferences.getBoolean("Success auth", false)) {
-            val intent = Intent(this, MainPageActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {
             val intent = Intent(this, AuthPageActivity::class.java)

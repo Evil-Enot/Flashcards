@@ -14,4 +14,12 @@
     <string name="name_surname_title">Enter your Name and Surname</string>
     <string name="empty_field_error">This field must be filled</string>
     <string name="password_missmatch">Password mismatch</string>
+    <string name="profile_menu_item">Profile</string>
+    <string name="friends_menu_item">Friends</string>
+    <string name="user_groups_menu_item">User groups</string>
+    <string name="user_communities_menu_item">User communities</string>
+    <string name="history_menu_item">History</string>
+    <string name="callback_menu_item">Callback</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_page_menu_item">Main page</string>
 </resources>

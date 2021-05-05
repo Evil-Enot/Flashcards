@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".AuthPageActivity" />
         <activity android:name=".RegisterPageActivity" />
-        <activity android:name=".MainPageActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
