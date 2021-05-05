@@ -13,7 +13,7 @@ class ProfilePageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.main_page, container, false)
+        val view = inflater.inflate(R.layout.profile_page, container, false)
         return view
     }
 

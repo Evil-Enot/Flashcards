@@ -30,7 +30,7 @@
             android:id="@+id/add_new_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image_button_add"
+            android:contentDescription="@string/image_button_add_new_group"
 
             android:src="@drawable/add"
             app:layout_constraintStart_toStartOf="parent"
