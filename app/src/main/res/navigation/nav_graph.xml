@@ -38,6 +38,11 @@
         android:name="com.example.flashcards.fragments.GroupPageFragment"
         android:label="GroupPageFragment"
         tools:layout="@layout/group_page"/>
+    <fragment
+        android:id="@+id/to_user_history"
+        android:name="com.example.flashcards.fragments.HistoryPageFragment"
+        android:label="HistoryPageFragment"
+        tools:layout="@layout/history_page"/>
 
     <fragment
         android:id="@+id/to_friends"
