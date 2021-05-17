@@ -90,11 +90,7 @@
         android:id="@+id/communityPageFragment"
         android:name="com.example.flashcards.fragments.CommunityPageFragment"
         android:label="CommunityPageFragment"
-        tools:layout="@layout/community_page">
-        <action
-            android:id="@+id/action_communityPageFragment_to_to_callback"
-            app:destination="@id/to_callback" />
-    </fragment>
+        tools:layout="@layout/community_page"/>
 
 
 </navigation>
