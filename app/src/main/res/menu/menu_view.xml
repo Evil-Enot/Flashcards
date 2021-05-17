@@ -36,11 +36,5 @@
             android:enabled="true"
             android:icon="@drawable/history"
             android:title="@string/history_menu_item" />
-
-        <item
-            android:id="@+id/to_callback"
-            android:enabled="true"
-            android:icon="@drawable/callback"
-            android:title="@string/callback_menu_item" />
     </group>
 </menu>
