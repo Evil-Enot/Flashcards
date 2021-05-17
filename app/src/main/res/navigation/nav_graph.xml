@@ -37,7 +37,11 @@
         android:id="@+id/groupPageFragment"
         android:name="com.example.flashcards.fragments.GroupPageFragment"
         android:label="GroupPageFragment"
-        tools:layout="@layout/group_page"/>
+        tools:layout="@layout/group_page">
+        <action
+            android:id="@+id/action_groupPageFragment_to_to_callback"
+            app:destination="@id/to_callback" />
+    </fragment>
     <fragment
         android:id="@+id/to_user_history"
         android:name="com.example.flashcards.fragments.HistoryPageFragment"
@@ -81,6 +85,12 @@
             android:id="@+id/action_userCommunitiesPageFragment_to_addNewCommunityPageFragment"
             app:destination="@id/addNewCommunityPageFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/communityPageFragment"
+        android:name="com.example.flashcards.fragments.CommunityPageFragment"
+        android:label="CommunityPageFragment"
+        tools:layout="@layout/community_page"/>
 
 
 </navigation>
