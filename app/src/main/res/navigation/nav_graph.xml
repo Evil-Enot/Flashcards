@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/to_main"
-        android:name="com.example.flashcards.fragments.MainPageFragment"
-        android:label="MainPageActivity"
-        tools:layout="@layout/main_page" />
+        android:name="com.example.flashcards.ui.main.MainFragment"
+        android:label="Main Page"
+        tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/to_profile"
-        android:name="com.example.flashcards.fragments.ProfilePageFragment"
-        android:label="ProfilePageFragment"
-        tools:layout="@layout/profile_page" />
+        android:name="com.example.flashcards.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/to_user_groups"
-        android:name="com.example.flashcards.fragments.UserGroupsPageFragment"
-        android:label="UserGroupsPageFragment"
-        tools:layout="@layout/user_groups_page">
+        android:name="com.example.flashcards.ui.user_groups.UserGroupsFragment"
+        android:label="Groups"
+        tools:layout="@layout/fragment_user_groups">
         <action
             android:id="@+id/action_to_user_groups_to_addNewGroupPageFragment"
             app:destination="@id/addNewGroupPageFragment" />
@@ -29,26 +29,26 @@
 
     <fragment
         android:id="@+id/addNewGroupPageFragment"
-        android:name="com.example.flashcards.fragments.AddNewGroupPageFragment"
-        android:label="AddNewGroupPageFragment"
-        tools:layout="@layout/add_new_group_page"/>
+        android:name="com.example.flashcards.ui.add_group.AddGroupFragment"
+        android:label="Add new group"
+        tools:layout="@layout/fragment_add_group" />
 
     <fragment
         android:id="@+id/groupPageFragment"
-        android:name="com.example.flashcards.fragments.GroupPageFragment"
-        android:label="GroupPageFragment"
-        tools:layout="@layout/group_page"/>
+        android:name="com.example.flashcards.ui.group.GroupFragment"
+        android:label="Group page"
+        tools:layout="@layout/fragment_group" />
     <fragment
         android:id="@+id/to_user_history"
-        android:name="com.example.flashcards.fragments.HistoryPageFragment"
-        android:label="HistoryPageFragment"
-        tools:layout="@layout/history_page"/>
+        android:name="com.example.flashcards.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/to_friends"
-        android:name="com.example.flashcards.fragments.FriendsPageFragment"
-        android:label="FriendsPageFragment"
-        tools:layout="@layout/friends_page">
+        android:name="com.example.flashcards.ui.friends.FriendsFragment"
+        android:label="Friends"
+        tools:layout="@layout/fragment_friends">
         <action
             android:id="@+id/action_to_friends_to_addFriendPageFragment"
             app:destination="@id/addFriendPageFragment" />
@@ -56,27 +56,27 @@
 
     <fragment
         android:id="@+id/addFriendPageFragment"
-        android:name="com.example.flashcards.fragments.AddFriendPageFragment"
-        android:label="AddFriendPageFragment"
-        tools:layout="@layout/add_friend_page"/>
+        android:name="com.example.flashcards.ui.add_friend.AddFriendFragment"
+        android:label="Add friend"
+        tools:layout="@layout/fragment_add_friend" />
 
     <fragment
         android:id="@+id/to_callback"
-        android:name="com.example.flashcards.fragments.CallbackPageFragment"
-        android:label="CallbackPageFragment"
-        tools:layout="@layout/callback_page"/>
+        android:name="com.example.flashcards.ui.callback.CallbackFragment"
+        android:label="Callback"
+        tools:layout="@layout/fragment_callback" />
 
     <fragment
         android:id="@+id/addNewCommunityPageFragment"
-        android:name="com.example.flashcards.fragments.AddNewCommunityPageFragment"
-        android:label="AddNewCommunityPageFragment"
-        tools:layout="@layout/add_new_community_page"/>
+        android:name="com.example.flashcards.ui.add_community.AddCommunityFragment"
+        android:label="Add new community"
+        tools:layout="@layout/fragment_add_community" />
 
     <fragment
         android:id="@+id/to_user_communities"
-        android:name="com.example.flashcards.fragments.UserCommunitiesPageFragment"
-        android:label="UserCommunitiesPageFragment"
-        tools:layout="@layout/user_communitites_page">
+        android:name="com.example.flashcards.ui.user_communities.UserCommunitiesFragment"
+        android:label="Communities"
+        tools:layout="@layout/fragment_user_communitites">
         <action
             android:id="@+id/action_userCommunitiesPageFragment_to_addNewCommunityPageFragment"
             app:destination="@id/addNewCommunityPageFragment" />
