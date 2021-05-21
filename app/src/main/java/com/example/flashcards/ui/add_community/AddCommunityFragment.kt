@@ -20,7 +20,7 @@ class AddCommunityFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         addCommunityViewModel =
             ViewModelProvider(this).get(AddCommunityViewModel::class.java)
 

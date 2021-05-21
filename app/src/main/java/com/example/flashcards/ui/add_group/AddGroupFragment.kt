@@ -20,7 +20,7 @@ class AddGroupFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         addGroupViewModel =
             ViewModelProvider(this).get(AddGroupViewModel::class.java)
 

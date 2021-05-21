@@ -21,7 +21,7 @@ class AddFriendFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         addFriendViewModel =
             ViewModelProvider(this).get(AddFriendViewModel::class.java)
 

@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mainViewModel =
             ViewModelProvider(this).get(MainViewModel::class.java)
 

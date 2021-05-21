@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flashcards.MainActivity
 import com.example.flashcards.R
 import com.example.flashcards.ui.main.MainFragment
 import com.example.flashcards.ui.register.RegisterActivity
@@ -43,7 +44,7 @@ class AuthActivity : AppCompatActivity() {
             if (password.text.toString().isNotEmpty() && login.text.toString().isNotEmpty()) {
                 if (password.text.toString() == "12345" && login.text.toString() == "admin") {
                     sharedPreferences.edit().putBoolean("Success auth", true).apply()
-                    val intent = Intent(this, MainFragment::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -54,5 +55,4 @@ class AuthActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 }
