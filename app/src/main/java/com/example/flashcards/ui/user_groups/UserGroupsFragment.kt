@@ -25,7 +25,7 @@ class UserGroupsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         userGroupsViewModel =
             ViewModelProvider(this).get(UserGroupsViewModel::class.java)
 
@@ -41,8 +41,7 @@ class UserGroupsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        addNewGroupButton = view.findViewById(R.id.add_friend)
-        addNewGroupButton.setOnClickListener {
+        binding.addFriend.setOnClickListener {
             findNavController().navigate(R.id.action_to_user_groups_to_addNewGroupPageFragment)
         }
     }

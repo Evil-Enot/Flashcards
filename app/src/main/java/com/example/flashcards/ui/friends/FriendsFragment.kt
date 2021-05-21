@@ -25,7 +25,7 @@ class FriendsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         friendsViewModel =
             ViewModelProvider(this).get(FriendsViewModel::class.java)
 
@@ -41,10 +41,8 @@ class FriendsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        addNewFriend = view.findViewById(R.id.add_friend)
-        addNewFriend.setOnClickListener {
+        binding.addFriend.setOnClickListener {
             findNavController().navigate(R.id.action_to_friends_to_addFriendPageFragment)
         }
     }
-
 }

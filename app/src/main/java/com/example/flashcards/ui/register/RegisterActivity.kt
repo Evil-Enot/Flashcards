@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flashcards.MainActivity
 import com.example.flashcards.R
 import com.example.flashcards.ui.main.MainFragment
 
@@ -63,7 +64,7 @@ class RegisterActivity : AppCompatActivity() {
                 && confirmPassword.text.toString() == password.text.toString()
             ) {
                 sharedPreferences.edit().putBoolean("Success", true).apply()
-                val intent = Intent(this, MainFragment::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
         }

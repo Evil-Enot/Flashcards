@@ -25,7 +25,7 @@ class UserCommunitiesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         userCommunitiesViewModel =
             ViewModelProvider(this).get(UserCommunitiesViewModel::class.java)
 
@@ -41,8 +41,7 @@ class UserCommunitiesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        addNewCommunity = view.findViewById(R.id.add_new_community)
-        addNewCommunity.setOnClickListener {
+        binding.addNewCommunity.setOnClickListener {
             findNavController().navigate(R.id.action_userCommunitiesPageFragment_to_addNewCommunityPageFragment)
         }
     }

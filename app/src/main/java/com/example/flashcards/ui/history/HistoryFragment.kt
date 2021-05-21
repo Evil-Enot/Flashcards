@@ -21,7 +21,7 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         historyViewModel =
             ViewModelProvider(this).get(HistoryViewModel::class.java)
 

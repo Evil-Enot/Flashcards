@@ -15,7 +15,14 @@
         android:id="@+id/to_profile"
         android:name="com.example.flashcards.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_to_profile_to_groupPageFragment"
+            app:destination="@id/groupPageFragment" />
+        <action
+            android:id="@+id/action_to_profile_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/to_user_groups"
@@ -37,7 +44,11 @@
         android:id="@+id/groupPageFragment"
         android:name="com.example.flashcards.ui.group.GroupFragment"
         android:label="Group page"
-        tools:layout="@layout/fragment_group" />
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/action_groupPageFragment_to_to_callback"
+            app:destination="@id/to_callback" />
+    </fragment>
     <fragment
         android:id="@+id/to_user_history"
         android:name="com.example.flashcards.ui.history.HistoryFragment"
@@ -80,6 +91,15 @@
         <action
             android:id="@+id/action_userCommunitiesPageFragment_to_addNewCommunityPageFragment"
             app:destination="@id/addNewCommunityPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.flashcards.ui.community.CommunityFragment"
+        android:label="Community page"
+        tools:layout="@layout/fragment_community">
+        <action
+            android:id="@+id/action_communityFragment_to_to_callback"
+            app:destination="@id/to_callback" />
     </fragment>
 
 

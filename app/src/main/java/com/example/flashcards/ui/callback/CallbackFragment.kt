@@ -21,7 +21,7 @@ class CallbackFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         callbackViewModel =
             ViewModelProvider(this).get(CallbackViewModel::class.java)
 
