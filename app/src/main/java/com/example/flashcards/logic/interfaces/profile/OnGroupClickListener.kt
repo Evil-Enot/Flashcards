@@ -1,7 +1,7 @@
 package com.example.flashcards.logic.interfaces.profile
 
-import com.example.flashcards.data.Groups
+import com.example.flashcards.data.GroupInfo
 
 interface OnGroupClickListener {
-    fun onGroupItemClick(item: Groups, position: Int)
+    fun onGroupItemClick(item: GroupInfo, position: Int)
 }

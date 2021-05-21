@@ -33,10 +33,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="author_title">Author:</string>
     <string name="community_subscribers_title">Subscribers:</string>
     <string name="group_date">Last visit:</string>
+    <string name="group_name_title">Group name:</string>
+    <string name="group_tags_title">Tags:</string>
+    <string name="group_max_points_title">Max points:</string>
+    <string name="group_last_visit_title">Last visit:</string>
 </resources>
