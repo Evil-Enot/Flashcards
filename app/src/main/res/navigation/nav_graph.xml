@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_to_user_groups_to_addNewGroupPageFragment"
             app:destination="@id/addNewGroupPageFragment" />
+        <action
+            android:id="@+id/action_to_user_groups_to_groupPageFragment"
+            app:destination="@id/groupPageFragment" />
     </fragment>
 
     <fragment
@@ -91,6 +94,9 @@
         <action
             android:id="@+id/action_userCommunitiesPageFragment_to_addNewCommunityPageFragment"
             app:destination="@id/addNewCommunityPageFragment" />
+        <action
+            android:id="@+id/action_to_user_communities_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"

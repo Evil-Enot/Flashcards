@@ -3,12 +3,12 @@ package com.example.flashcards.logic.adapters.profile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.Communities
+import com.example.flashcards.data.CommunityInfo
 import com.example.flashcards.databinding.ProfileRecyclerviewCommunityItemBinding
 import com.example.flashcards.logic.interfaces.profile.OnCommunityClickListener
 
 class CommunitiesAdapter(
-    private val communities: List<Communities>,
+    private val communities: List<CommunityInfo>,
     private var clickListener: OnCommunityClickListener
 ) :
     RecyclerView.Adapter<ProfileCommunityViewHolder>() {

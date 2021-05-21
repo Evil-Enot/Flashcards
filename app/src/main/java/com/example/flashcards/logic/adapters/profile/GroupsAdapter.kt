@@ -3,12 +3,12 @@ package com.example.flashcards.logic.adapters.profile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.Groups
+import com.example.flashcards.data.GroupInfo
 import com.example.flashcards.databinding.ProfileRecyclerviewGroupItemBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
 
 class GroupsAdapter(
-    private val groups: List<Groups>,
+    private val groups: List<GroupInfo>,
     private var clickListener: OnGroupClickListener
 ) :
     RecyclerView.Adapter<ProfileGroupViewHolder>() {
