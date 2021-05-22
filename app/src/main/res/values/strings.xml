@@ -55,4 +55,7 @@
     <string name="delete">Delete</string>
     <string name="add_group">Add group</string>
     <string name="edit_qa_item">Edit qa item</string>
+    <string name="submit_answer">Submit answer</string>
+    <string name="your_answer">Your answer:</string>
+    <string name="next_question">Next question</string>
 </resources>

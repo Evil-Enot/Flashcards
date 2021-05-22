@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.flashcards.R
 import com.example.flashcards.databinding.FragmentGroupBinding
+import com.example.flashcards.ui.find_group.FindGroupFragment
+import com.example.flashcards.ui.group_card.GroupCardFragment
 
 class GroupFragment : Fragment() {
     private lateinit var callbackImageButton: ImageButton
@@ -30,6 +32,10 @@ class GroupFragment : Fragment() {
 
         _binding = FragmentGroupBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.groups_card, GroupCardFragment())
+            ?.commit()
 
         return root
     }
