@@ -6,7 +6,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.GroupInfo
-import com.example.flashcards.databinding.AddNewGroupFindBinding
+import com.example.flashcards.databinding.ItemAddNewGroupFindBinding
 import com.example.flashcards.logic.interfaces.find_groups.OnFindGroupsClickListener
 
 class FindNewGroupAdapter(
@@ -20,7 +20,7 @@ class FindNewGroupAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FindNewGroupViewHolder {
         return FindNewGroupViewHolder(
-            AddNewGroupFindBinding.inflate(
+            ItemAddNewGroupFindBinding.inflate(
                 LayoutInflater.from(
                     parent.context
                 ), parent, false

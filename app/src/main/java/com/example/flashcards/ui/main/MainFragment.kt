@@ -60,7 +60,7 @@ class MainFragment : Fragment(), OnMainClickListener {
         _binding = null
     }
 
-    override fun onMainClick(item: GroupInfo, position: Int) {
+    override fun onMainItemClick(item: GroupInfo, position: Int) {
         findNavController().navigate(R.id.action_to_main_to_groupPageFragment)
     }
 }

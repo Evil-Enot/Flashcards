@@ -3,11 +3,11 @@ package com.example.flashcards.logic.adapters.user_groups
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.GroupInfo
-import com.example.flashcards.databinding.UserGroupsRecyclerviewCardBinding
+import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
 
 class UserGroupsViewHolder(
-    binding: UserGroupsRecyclerviewCardBinding
+    binding: ItemUserGroupsBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     var groupName: TextView? = binding.groupNameItem

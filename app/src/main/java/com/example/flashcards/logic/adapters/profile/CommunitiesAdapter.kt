@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.CommunityInfo
-import com.example.flashcards.databinding.ProfileRecyclerviewCommunityItemBinding
+import com.example.flashcards.databinding.ItemProfileRecyclerviewCommunityBinding
 import com.example.flashcards.logic.interfaces.profile.OnCommunityClickListener
 
 class CommunitiesAdapter(
@@ -14,7 +14,7 @@ class CommunitiesAdapter(
     RecyclerView.Adapter<ProfileCommunityViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ProfileCommunityViewHolder(
-        ProfileRecyclerviewCommunityItemBinding.inflate(
+        ItemProfileRecyclerviewCommunityBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

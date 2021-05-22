@@ -60,7 +60,11 @@
         android:id="@+id/to_user_history"
         android:name="com.example.flashcards.ui.history.HistoryFragment"
         android:label="History"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_to_user_history_to_groupPageFragment"
+            app:destination="@id/groupPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/to_friends"
