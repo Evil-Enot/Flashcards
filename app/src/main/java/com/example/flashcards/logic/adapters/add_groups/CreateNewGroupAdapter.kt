@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
-import com.example.flashcards.data.QAInfo
+import com.example.flashcards.model.QAInfo
 import com.example.flashcards.databinding.FragmentAddNewGroupCreateQaBinding
 import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
 

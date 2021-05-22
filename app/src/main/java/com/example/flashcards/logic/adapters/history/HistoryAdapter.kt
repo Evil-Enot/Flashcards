@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.HistoryInfo
+import com.example.flashcards.model.HistoryInfo
 import com.example.flashcards.databinding.ItemHistoryBinding
 import com.example.flashcards.logic.interfaces.history.OnHistoryClickListener
 

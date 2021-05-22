@@ -1,4 +1,4 @@
-package com.example.flashcards.data
+package com.example.flashcards.model
 
 data class HistoryInfo(
     var groupName: String,

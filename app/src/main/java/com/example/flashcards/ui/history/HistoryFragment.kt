@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
-import com.example.flashcards.data.HistoryInfo
+import com.example.flashcards.model.HistoryInfo
 import com.example.flashcards.databinding.FragmentHistoryBinding
 import com.example.flashcards.logic.adapters.history.HistoryAdapter
 import com.example.flashcards.logic.interfaces.history.OnHistoryClickListener

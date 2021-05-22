@@ -2,7 +2,7 @@ package com.example.flashcards.logic.adapters.profile
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.GroupInfo
+import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
 

@@ -3,7 +3,7 @@ package com.example.flashcards.ui.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.flashcards.data.UserInfo
+import com.example.flashcards.model.UserInfo
 
 class ProfileViewModel : ViewModel() {
     private val _userInfo = MutableLiveData<UserInfo>().apply {

@@ -2,7 +2,7 @@ package com.example.flashcards.logic.adapters.history
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.HistoryInfo
+import com.example.flashcards.model.HistoryInfo
 import com.example.flashcards.databinding.ItemHistoryBinding
 import com.example.flashcards.logic.interfaces.history.OnHistoryClickListener
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.GroupInfo
+import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.ItemAddNewGroupFindBinding
 import com.example.flashcards.logic.interfaces.find_groups.OnFindGroupsClickListener
 
