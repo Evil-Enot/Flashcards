@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.QAInfo
-import com.example.flashcards.databinding.AddNewGroupCreateQaBinding
 import com.example.flashcards.databinding.FragmentAddGroupCreateBinding
+import com.example.flashcards.databinding.FragmentAddNewGroupCreateQaBinding
 import com.example.flashcards.logic.adapters.add_groups.CreateNewGroupAdapter
 
 class CreateNewGroupFragment : Fragment() {
@@ -51,7 +51,7 @@ class CreateNewGroupFragment : Fragment() {
     }
 
     private fun addQA() {
-        val newGroupCreate = AddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
+        val newGroupCreate = FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
 
         val itemQuestion = newGroupCreate.qaQuestion
         val itemAnswer = newGroupCreate.qaAnswer

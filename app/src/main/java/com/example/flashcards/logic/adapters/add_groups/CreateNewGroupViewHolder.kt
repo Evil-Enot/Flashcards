@@ -5,11 +5,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.QAInfo
-import com.example.flashcards.databinding.AddNewGroupCreateQaItemBinding
+import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
 
 class CreateNewGroupViewHolder(
     val context: Context,
-    binding: AddNewGroupCreateQaItemBinding,
+    binding: ItemAddNewGroupCreateQaBinding,
     groupQa: ArrayList<QAInfo>
 ) : RecyclerView.ViewHolder(binding.root) {
 

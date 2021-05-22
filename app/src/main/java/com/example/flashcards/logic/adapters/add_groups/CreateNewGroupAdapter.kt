@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
 import com.example.flashcards.data.QAInfo
-import com.example.flashcards.databinding.AddNewGroupCreateQaBinding
-import com.example.flashcards.databinding.AddNewGroupCreateQaItemBinding
+import com.example.flashcards.databinding.FragmentAddNewGroupCreateQaBinding
+import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
 
 class CreateNewGroupAdapter(
     val context: Context?,
@@ -22,7 +22,7 @@ class CreateNewGroupAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreateNewGroupViewHolder {
         return CreateNewGroupViewHolder(
-            AddNewGroupCreateQaItemBinding.inflate(
+            ItemAddNewGroupCreateQaBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -42,7 +42,7 @@ class CreateNewGroupAdapter(
     }
 
     inner class CreateNewGroupViewHolder(
-        binding: AddNewGroupCreateQaItemBinding
+        binding: ItemAddNewGroupCreateQaBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         var groupQuestion: TextView = binding.qaQuestionText
@@ -60,7 +60,7 @@ class CreateNewGroupAdapter(
                 when (it.itemId) {
                     R.id.editQA -> {
                         val binding =
-                            AddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
+                            FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
                         val qaQuestion = binding.qaQuestion
                         val qaAnswer = binding.qaAnswer
 

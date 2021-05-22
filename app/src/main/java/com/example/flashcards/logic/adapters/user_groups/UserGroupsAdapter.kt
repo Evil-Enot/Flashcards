@@ -6,7 +6,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.GroupInfo
-import com.example.flashcards.databinding.UserGroupsRecyclerviewCardBinding
+import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
 
 class UserGroupsAdapter(
@@ -20,7 +20,7 @@ class UserGroupsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserGroupsViewHolder {
         return UserGroupsViewHolder(
-            UserGroupsRecyclerviewCardBinding.inflate(
+            ItemUserGroupsBinding.inflate(
                 LayoutInflater.from(
                     parent.context
                 ), parent, false

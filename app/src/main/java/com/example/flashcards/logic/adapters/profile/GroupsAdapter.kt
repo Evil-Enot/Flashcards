@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.GroupInfo
-import com.example.flashcards.databinding.ProfileRecyclerviewGroupItemBinding
+import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
 
 class GroupsAdapter(
@@ -14,7 +14,7 @@ class GroupsAdapter(
     RecyclerView.Adapter<ProfileGroupViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ProfileGroupViewHolder(
-        ProfileRecyclerviewGroupItemBinding.inflate(
+        ItemProfileRecyclerviewGroupBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
