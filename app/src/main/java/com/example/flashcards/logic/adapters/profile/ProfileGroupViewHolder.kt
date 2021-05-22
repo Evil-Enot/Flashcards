@@ -10,7 +10,7 @@ class ProfileGroupViewHolder(
     binding: ProfileRecyclerviewGroupItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    var groupName: TextView? = binding.groupName
+    var groupName: TextView? = binding.groupNameProfile
     var groupAuthor: TextView? = binding.groupAuthor
     var groupFlags: TextView? = binding.groupDate
 

@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/group_name"
+            android:id="@+id/group_name_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -33,7 +33,7 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/group_author_title"
-            app:layout_constraintTop_toBottomOf="@+id/group_name" />
+            app:layout_constraintTop_toBottomOf="@+id/group_name_profile" />
 
         <TextView
             android:id="@+id/group_date"
@@ -53,7 +53,7 @@
             android:text="@string/author_title"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/group_name" />
+            app:layout_constraintTop_toBottomOf="@+id/group_name_profile" />
 
         <TextView
             android:id="@+id/group_last_date"
