@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
-import com.example.flashcards.data.CommunityInfo
-import com.example.flashcards.data.GroupInfo
+import com.example.flashcards.model.CommunityInfo
+import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.FragmentProfileBinding
 import com.example.flashcards.logic.adapters.profile.CommunitiesAdapter
 import com.example.flashcards.logic.adapters.profile.GroupsAdapter

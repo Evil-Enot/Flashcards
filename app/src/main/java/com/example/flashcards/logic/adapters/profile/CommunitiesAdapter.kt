@@ -3,7 +3,7 @@ package com.example.flashcards.logic.adapters.profile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.data.CommunityInfo
+import com.example.flashcards.model.CommunityInfo
 import com.example.flashcards.databinding.ItemProfileRecyclerviewCommunityBinding
 import com.example.flashcards.logic.interfaces.profile.OnCommunityClickListener
 

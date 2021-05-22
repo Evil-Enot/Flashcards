@@ -61,4 +61,7 @@
     <string name="my_points">My points:</string>
     <string name="submit_callback">Submit callback</string>
     <string name="describe_your_problem_in_detail">Describe your problem in detail</string>
+    <string name="friend_name">Friend name:</string>
+    <string name="enter_friend_s_e_mail">Enter friend\'s e-mail:</string>
+    <string name="add_friend">Add friend</string>
 </resources>
