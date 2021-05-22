@@ -51,7 +51,8 @@ class CreateNewGroupFragment : Fragment() {
     }
 
     private fun addQA() {
-        val newGroupCreate = FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
+        val newGroupCreate =
+            FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
 
         val itemQuestion = newGroupCreate.qaQuestion
         val itemAnswer = newGroupCreate.qaAnswer

@@ -6,6 +6,4 @@ data class GroupInfo(
     var date: String,
     var flags: String,
     var maxPoints: String
-) {
-
-}
+)

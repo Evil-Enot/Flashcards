@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.flashcards.databinding.GroupCardBinding
 
-class GroupCardFragment: Fragment() {
+class GroupCardFragment : Fragment() {
     private lateinit var groupCardViewModel: GroupCardViewModel
     private var _binding: GroupCardBinding? = null
 

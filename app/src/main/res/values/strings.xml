@@ -59,4 +59,6 @@
     <string name="your_answer">Your answer:</string>
     <string name="next_question">Next question</string>
     <string name="my_points">My points:</string>
+    <string name="submit_callback">Submit callback</string>
+    <string name="describe_your_problem_in_detail">Describe your problem in detail</string>
 </resources>

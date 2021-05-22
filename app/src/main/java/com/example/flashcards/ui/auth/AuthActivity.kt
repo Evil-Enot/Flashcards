@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
-import com.example.flashcards.ui.main.MainFragment
 import com.example.flashcards.ui.register.RegisterActivity
 
 class AuthActivity : AppCompatActivity() {

@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.flashcards.R
 import com.example.flashcards.databinding.FragmentGroupBinding
-import com.example.flashcards.ui.find_group.FindGroupFragment
 import com.example.flashcards.ui.group_card.GroupCardFragment
 
 class GroupFragment : Fragment() {
-    private lateinit var callbackImageButton: ImageButton
     private lateinit var groupViewModel: GroupViewModel
     private var _binding: FragmentGroupBinding? = null
 
