@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/to_main"
+            android:enabled="true"
             android:icon="@drawable/main"
             android:title="@string/main_page_menu_item" />
 
         <item
             android:id="@+id/to_profile"
+            android:enabled="true"
             android:icon="@drawable/profile"
             android:title="@string/profile_menu_item" />
 
         <item
             android:id="@+id/to_friends"
+            android:enabled="true"
             android:icon="@drawable/friends"
             android:title="@string/friends_menu_item" />
 
         <item
             android:id="@+id/to_user_groups"
+            android:enabled="true"
             android:icon="@drawable/groups"
             android:title="@string/user_groups_menu_item" />
 
         <item
             android:id="@+id/to_user_communities"
+            android:enabled="true"
             android:icon="@drawable/communities"
             android:title="@string/user_communities_menu_item" />
 
         <item
             android:id="@+id/to_user_history"
+            android:enabled="true"
             android:icon="@drawable/history"
             android:title="@string/history_menu_item" />
     </group>
