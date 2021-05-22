@@ -107,6 +107,15 @@
             android:id="@+id/action_communityFragment_to_to_callback"
             app:destination="@id/to_callback" />
     </fragment>
+    <fragment
+        android:id="@+id/findGroupFragment"
+        android:name="com.example.flashcards.ui.find_group.FindGroupFragment"
+        android:label="fragment_add_group_find"
+        tools:layout="@layout/fragment_add_group_find" >
+        <action
+            android:id="@+id/action_findGroupFragment_to_groupPageFragment"
+            app:destination="@id/groupPageFragment" />
+    </fragment>
 
 
 </navigation>

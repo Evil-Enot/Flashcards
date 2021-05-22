@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -45,20 +44,20 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
         userGroups.layoutManager = LinearLayoutManager(userGroups.context)
         userGroups.adapter = UserGroupsAdapter(userGroupsList, this)
 
-//        val adapter = UserGroupsAdapter(userGroupsList, this)
-//        binding.groupFilter.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(p0: String?): Boolean {
-//                binding.groupFilter.clearFocus()
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newGroup: String?): Boolean {
-//                adapter.filter.filter(newGroup)
-//                return false
-//            }
-//        })
-//
-//        userGroups.adapter = adapter
+        val adapter = UserGroupsAdapter(userGroupsList, this)
+        binding.groupFilter.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                binding.groupFilter.clearFocus()
+                return false
+            }
+
+            override fun onQueryTextChange(newGroup: String?): Boolean {
+                adapter.filter.filter(newGroup)
+                return false
+            }
+        })
+
+        userGroups.adapter = adapter
 
         return root
     }

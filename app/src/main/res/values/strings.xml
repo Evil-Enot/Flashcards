@@ -11,7 +11,7 @@
     <string name="enter_e_mail_title">Enter your e-mail</string>
     <string name="confirm_registration">Confirm registration</string>
     <string name="registration_title">Registration</string>
-    <string name="name_surname_title">Enter your Name and Surname</string>
+    <string name="name_surname_title">Enter your Name</string>
     <string name="empty_field_error">This field must be filled</string>
     <string name="password_missmatch">Password mismatch</string>
     <string name="profile_menu_item">Profile</string>
@@ -40,4 +40,19 @@
     <string name="group_tags_title">Tags:</string>
     <string name="group_max_points_title">Max points:</string>
     <string name="group_last_visit_title">Last visit:</string>
+    <string name="add_group_select_an_action_title">Select an action:</string>
+    <string name="create_new_group_button">Create new group</string>
+    <string name="find_a_group_button">Find a group</string>
+    <string name="add_question_title">Add question</string>
+    <string name="submit_new_group_button_title">Submit new group</string>
+    <string name="enter_group_name">Enter group name:</string>
+    <string name="find_group">Find group</string>
+    <string name="add_new_question">Add new question</string>
+    <string name="add_new_card_title">Add new card</string>
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
+    <string name="edit_qa">Edit QA</string>
+    <string name="delete">Delete</string>
+    <string name="add_group">Add group</string>
+    <string name="edit_qa_item">Edit qa item</string>
 </resources>
