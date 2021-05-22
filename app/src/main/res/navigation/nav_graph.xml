@@ -9,7 +9,11 @@
         android:id="@+id/to_main"
         android:name="com.example.flashcards.ui.main.MainFragment"
         android:label="Main Page"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_to_main_to_groupPageFragment"
+            app:destination="@id/groupPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/to_profile"
@@ -111,7 +115,7 @@
         android:id="@+id/findGroupFragment"
         android:name="com.example.flashcards.ui.find_group.FindGroupFragment"
         android:label="fragment_add_group_find"
-        tools:layout="@layout/fragment_add_group_find" >
+        tools:layout="@layout/fragment_add_group_find">
         <action
             android:id="@+id/action_findGroupFragment_to_groupPageFragment"
             app:destination="@id/groupPageFragment" />
