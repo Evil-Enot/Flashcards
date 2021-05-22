@@ -8,16 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.data.GroupInfo
 import com.example.flashcards.databinding.UserGroupsRecyclerviewCardBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
-import java.util.*
-import kotlin.collections.ArrayList
 
 class UserGroupsAdapter(
     private val userGroups: ArrayList<GroupInfo>,
     private var clickListener: OnUserGroupsClickListener
 ) :
     RecyclerView.Adapter<UserGroupsViewHolder>(),
-    Filterable
-    {
+    Filterable {
 
     var userGroupsList: ArrayList<GroupInfo> = userGroups
 
