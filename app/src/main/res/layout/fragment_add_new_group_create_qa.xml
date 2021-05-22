@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:background="@color/purple_500"
         android:gravity="center"
         android:padding="10dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
         android:text="@string/add_new_card_title"
         android:textColor="@color/white"
         android:textSize="19sp"
@@ -28,13 +28,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="5dp"
+        android:autofillHints=""
         android:hint="@string/question"
         android:inputType="textCapSentences"
         android:padding="15dp"
         android:textColor="@color/purple_500"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:autofillHints="" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/qa_answer"
@@ -44,12 +44,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="15dp"
+        android:autofillHints=""
         android:hint="@string/answer"
         android:inputType="textCapSentences"
         android:padding="15dp"
         android:textColor="@color/purple_500"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:autofillHints="" />
+        android:textStyle="bold" />
 
 </LinearLayout>

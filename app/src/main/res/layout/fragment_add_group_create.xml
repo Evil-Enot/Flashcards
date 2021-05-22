@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".ui.create_group.CreateNewGroupFragment">
 
     <TextView
@@ -113,11 +113,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginTop="4dp"
+        android:contentDescription="@string/add_new_question"
         android:src="@drawable/add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/group_flags"
-        android:contentDescription="@string/add_new_question" />
+        app:layout_constraintTop_toBottomOf="@+id/group_flags" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

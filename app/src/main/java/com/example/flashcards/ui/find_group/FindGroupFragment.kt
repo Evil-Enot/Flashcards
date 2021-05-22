@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.R
 import com.example.flashcards.data.GroupInfo
 import com.example.flashcards.databinding.FragmentAddGroupFindBinding
 import com.example.flashcards.logic.adapters.find_groups.FindNewGroupAdapter
-import com.example.flashcards.logic.adapters.user_groups.UserGroupsAdapter
 import com.example.flashcards.logic.interfaces.find_groups.OnFindGroupsClickListener
 
 class FindGroupFragment : Fragment(), OnFindGroupsClickListener {
@@ -44,7 +41,7 @@ class FindGroupFragment : Fragment(), OnFindGroupsClickListener {
         groups.adapter = FindNewGroupAdapter(groupsList, this)
 
         val adapter = FindNewGroupAdapter(groupsList, this)
-        binding.findNewGroup.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.findNewGroup.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 binding.findNewGroup.clearFocus()
                 return false

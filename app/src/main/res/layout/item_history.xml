@@ -6,8 +6,8 @@
     android:layout_margin="10dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

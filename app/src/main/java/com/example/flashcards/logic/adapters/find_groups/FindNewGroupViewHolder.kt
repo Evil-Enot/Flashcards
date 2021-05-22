@@ -17,7 +17,7 @@ class FindNewGroupViewHolder(
     var groupMaxPoints: TextView? = binding.groupMaxPointsItem
     var addGroup: ImageView? = binding.addGroup
 
-    fun initializeFindNewGroup(item: GroupInfo, action: OnFindGroupsClickListener){
+    fun initializeFindNewGroup(item: GroupInfo, action: OnFindGroupsClickListener) {
         itemView.setOnClickListener {
             action.onFindGroupsItemClick(item, absoluteAdapterPosition)
         }

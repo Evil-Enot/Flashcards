@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
-import com.example.flashcards.ui.main.MainFragment
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

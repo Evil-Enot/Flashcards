@@ -13,8 +13,7 @@ class FindNewGroupAdapter(
     private val groups: ArrayList<GroupInfo>,
     private var clickListener: OnFindGroupsClickListener
 ) : RecyclerView.Adapter<FindNewGroupViewHolder>(),
-    Filterable
-{
+    Filterable {
 
     var groupsList: ArrayList<GroupInfo> = groups
 
