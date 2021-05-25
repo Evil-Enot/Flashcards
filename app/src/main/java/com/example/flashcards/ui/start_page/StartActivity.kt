@@ -17,7 +17,7 @@ class StartActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
 
-        if (sharedPreferences.getBoolean("Success auth", false)) {
+        if (sharedPreferences.getBoolean("Success", false)) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {

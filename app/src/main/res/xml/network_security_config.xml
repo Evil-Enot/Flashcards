@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://121.345.678.90:7744/KBB/Kbblist</domain>
+        <domain includeSubdomains="true">http://111.234.177.123:1100</domain>
+    </domain-config>
+</network-security-config>
