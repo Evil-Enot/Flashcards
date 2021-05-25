@@ -11,14 +11,19 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
+import com.example.flashcards.api.WebClient
+import com.example.flashcards.model.AuthRequest
+import com.example.flashcards.model.AuthResponse
+import com.example.flashcards.model.Token
 import com.example.flashcards.ui.register.RegisterActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AuthActivity : AppCompatActivity() {
+    private val webClient = WebClient().getApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        Log.i("LifeCycle", "AuthPage onCreate")
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.auth_page)
 
@@ -30,6 +35,7 @@ class AuthActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
 
         button.setOnClickListener {
+
             if (login.text.toString().isEmpty()) {
                 login.hint = getString(R.string.empty_field_error)
                 login.setHintTextColor(Color.RED)
@@ -40,18 +46,43 @@ class AuthActivity : AppCompatActivity() {
                 password.setHintTextColor(Color.RED)
             }
 
-            if (password.text.toString().isNotEmpty() && login.text.toString().isNotEmpty()) {
-                if (password.text.toString() == "12345" && login.text.toString() == "admin") {
-                    sharedPreferences.edit().putBoolean("Success auth", true).apply()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+            val userAuth = AuthRequest(
+                Token(null, ""),
+                login.text.toString(),
+                password.text.toString()
+            )
+
+            val callAuth = webClient.auth(userAuth)
+            callAuth.enqueue(object : Callback<AuthResponse> {
+                override fun onResponse(
+                    call: Call<AuthResponse>,
+                    response: Response<AuthResponse>
+                ) {
+
+                    val userToken = response.body()?.token?.token.toString()
+                    val userId = response.body()?.token?.userId.toString()
+
+                    sharedPreferences.edit().putString("UserToken", userToken).apply()
+                    sharedPreferences.edit().putString("UserId", userId).apply()
+                    sharedPreferences.edit().putBoolean("Success", true).apply()
+
+                    startApp()
                 }
-            }
+
+                override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+
+                }
+            })
         }
 
         register.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun startApp() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
