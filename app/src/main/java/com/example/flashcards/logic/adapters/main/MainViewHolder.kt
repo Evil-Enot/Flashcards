@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.main.OnMainClickListener
+import com.example.flashcards.model.Records
 
 class MainViewHolder(
     binding: ItemUserGroupsBinding
@@ -16,7 +17,7 @@ class MainViewHolder(
     var groupMaxPoints: TextView? = binding.groupMaxPointsItem
     var groupLastVisit: TextView? = binding.groupLastVisitItem
 
-    fun initializeUserGroups(item: GroupInfo, action: OnMainClickListener) {
+    fun initializeUserGroups(item: Records?, action: OnMainClickListener) {
         itemView.setOnClickListener {
             action.onMainItemClick(item, absoluteAdapterPosition)
         }

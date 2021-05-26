@@ -42,7 +42,7 @@ class GroupsAdapter(
             holder.groupDate?.text =
                 groups[position]?.lastVisit?.lastAnswerTime?.toString()?.subSequence(0..10)
         } else {
-            holder.groupDate?.text = "never"
+            holder.groupDate?.text = "Never"
         }
 
         //--------------------------------------------//
