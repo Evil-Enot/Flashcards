@@ -17,10 +17,10 @@ import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.FragmentHistoryBinding
 import com.example.flashcards.logic.adapters.history.HistoryAdapter
 import com.example.flashcards.logic.interfaces.history.OnHistoryClickListener
-import com.example.flashcards.model.RecordsHistory
+import com.example.flashcards.model.history.RecordsHistory
 import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserHistoryResponse
-import com.example.flashcards.model.UserRequest
+import com.example.flashcards.model.history.UserHistoryResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -40,9 +40,9 @@ class HistoryFragment : Fragment(), OnHistoryClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -54,12 +54,10 @@ class HistoryFragment : Fragment(), OnHistoryClickListener {
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение общих данных и т.д.
-
         val userHistoryList: ArrayList<RecordsHistory?> = ArrayList()
 
         historyViewModel =
@@ -68,12 +66,10 @@ class HistoryFragment : Fragment(), OnHistoryClickListener {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение истории пользователя
-
         val userHistoryRV: RecyclerView = binding.userHistoryContainer
 
         val userHistory = UserRequest(
@@ -99,7 +95,6 @@ class HistoryFragment : Fragment(), OnHistoryClickListener {
                 Log.i("test", "error $t")
             }
         })
-
         //--------------------------------------------//
 
         return root
@@ -137,6 +132,8 @@ class HistoryFragment : Fragment(), OnHistoryClickListener {
     }
 
     override fun onHistoryItemClick(item: RecordsHistory?, position: Int) {
+        val groupIdSave = context?.getSharedPreferences("GroupId", Context.MODE_PRIVATE)
+        groupIdSave?.edit()?.putString("GroupId", item?.groupId?.toString())?.apply()
         findNavController().navigate(R.id.action_to_user_history_to_groupPageFragment)
     }
 }

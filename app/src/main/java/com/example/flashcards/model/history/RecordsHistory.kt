@@ -1,4 +1,4 @@
-package com.example.flashcards.model
+package com.example.flashcards.model.history
 
 import java.sql.Timestamp
 

@@ -4,7 +4,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
-import com.example.flashcards.model.RecordsGroup
+import com.example.flashcards.model.groups.RecordsGroup
 
 class UserGroupsViewHolder(
     binding: ItemUserGroupsBinding

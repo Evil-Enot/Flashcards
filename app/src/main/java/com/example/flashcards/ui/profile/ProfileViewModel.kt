@@ -4,6 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.flashcards.api.WebClient
 import com.example.flashcards.model.*
+import com.example.flashcards.model.user.UserInfo
+import com.example.flashcards.model.user.UserInfoResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

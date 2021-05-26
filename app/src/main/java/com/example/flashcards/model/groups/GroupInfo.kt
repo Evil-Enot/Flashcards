@@ -1,4 +1,4 @@
-package com.example.flashcards.model
+package com.example.flashcards.model.groups
 
 data class GroupInfo(
     val id: Long,

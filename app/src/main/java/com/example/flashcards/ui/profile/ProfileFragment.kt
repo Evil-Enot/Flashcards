@@ -23,6 +23,10 @@ import com.example.flashcards.logic.adapters.profile.GroupsAdapter
 import com.example.flashcards.logic.interfaces.profile.OnCommunityClickListener
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
 import com.example.flashcards.model.*
+import com.example.flashcards.model.groups.RecordsGroup
+import com.example.flashcards.model.history.UserGroupsResponse
+import com.example.flashcards.model.user.UserInfoResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,9 +50,9 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -60,26 +64,21 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение общих данных и т.д.
-
         val groupList: ArrayList<RecordsGroup?> = ArrayList()
 
         profileViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-
         val root: View = binding.root
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение данных пользователя
-
         val userNameField: TextView = binding.userName
         val userEmailField: TextView = binding.userEmail
         val userStatusField: TextView = binding.userStatus
@@ -87,7 +86,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
 
         val getUser = UserRequest(
             Token(userId.toLong(), userToken),
-            userId.toLong(),
+            userId.toLong()
         )
 
         val callUser = webClient.getUser(getUser)
@@ -116,12 +115,10 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
                 Log.i("test", "error $t")
             }
         })
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение групп пользователя
-
         val userGroupRV: RecyclerView = binding.userGroupsRw
 
         val userGroups = UserRequest(
@@ -149,19 +146,16 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
                 Log.i("test", "error $t")
             }
         })
-
         //--------------------------------------------//
 
         //--------------------------------------------//
         // Получение сообществ пользователя
-
         addCommunities()
 
         val userCommunities: RecyclerView = binding.userCommunitiesRw
         userCommunities.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         userCommunities.adapter = CommunitiesAdapter(communityList, this)
-
         //--------------------------------------------//
 
         return root
@@ -195,10 +189,9 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
     }
 
     override fun onGroupItemClick(item: RecordsGroup?, position: Int) {
+        val groupIdSave = context?.getSharedPreferences("GroupId", Context.MODE_PRIVATE)
+        groupIdSave?.edit()?.putString("GroupId", item?.group?.id.toString())?.apply()
         findNavController().navigate(R.id.action_to_profile_to_groupPageFragment)
-//        intent.putExtra("GroupName", item.name)
-//        intent.putExtra("GroupAuthor", item.author)
-//        intent.putExtra("GroupTime", item.time)
     }
 
     override fun onCommunityItemClick(item: CommunityInfo, position: Int) {

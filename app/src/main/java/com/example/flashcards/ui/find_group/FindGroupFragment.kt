@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.GroupInfo
+import com.example.flashcards.model.groups.GroupInfo
 import com.example.flashcards.databinding.FragmentAddGroupFindBinding
 import com.example.flashcards.logic.adapters.find_groups.FindNewGroupAdapter
 import com.example.flashcards.logic.interfaces.find_groups.OnFindGroupsClickListener
