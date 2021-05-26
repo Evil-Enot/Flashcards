@@ -31,7 +31,7 @@ class GroupsAdapter(
     )
 
     override fun onBindViewHolder(holder: ProfileGroupViewHolder, position: Int) {
-        // Вывод имени группы
+        // Получение имени группы
         holder.groupName?.text = groups[position]?.group?.name
 
         // Вывод даты последнего взаимодействия
@@ -60,7 +60,7 @@ class GroupsAdapter(
         //--------------------------------------------//
 
         //--------------------------------------------//
-        // Вывод автора группы в зависимости от того, кто автор - сообщество или пользователь
+        // Получение автора группы в зависимости от того, кто автор - сообщество или пользователь
         if (groups[position]?.group?.authorUserId.toString() != "0") {
             val getUser = UserRequest(
                 Token(userId.toLong(), userToken),
