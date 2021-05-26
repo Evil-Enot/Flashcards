@@ -17,9 +17,9 @@ import com.example.flashcards.databinding.FragmentMainBinding
 import com.example.flashcards.logic.adapters.main.MainAdapter
 import com.example.flashcards.logic.adapters.profile.EmptyGroupsAdapter
 import com.example.flashcards.logic.interfaces.main.OnMainClickListener
-import com.example.flashcards.model.Records
+import com.example.flashcards.model.RecordsGroup
 import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserGroupsRequest
+import com.example.flashcards.model.UserRequest
 import com.example.flashcards.model.UserGroupsResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +27,7 @@ import retrofit2.Response
 
 class MainFragment : Fragment(), OnMainClickListener {
 
-    private var userGroupsList: ArrayList<Records?> = ArrayList()
+    private var userGroupsList: ArrayList<RecordsGroup?> = ArrayList()
 
     private lateinit var mainViewModel: MainViewModel
     private var _binding: FragmentMainBinding? = null
@@ -76,7 +76,7 @@ class MainFragment : Fragment(), OnMainClickListener {
 
         val userGroupsRV: RecyclerView = binding.mainFeed
 
-        val userGroups = UserGroupsRequest(
+        val userGroups = UserRequest(
             Token(userId.toLong(), userToken),
             userId.toLong(),
         )
@@ -107,7 +107,7 @@ class MainFragment : Fragment(), OnMainClickListener {
     }
 
     // Вывод групп пользователя
-    private fun printGroups(userGroupRV: RecyclerView, groupList: ArrayList<Records?>) {
+    private fun printGroups(userGroupRV: RecyclerView, groupList: ArrayList<RecordsGroup?>) {
         Log.i("test", "success $groupList")
         if (groupList.isEmpty()) {
             userGroupRV.layoutManager =
@@ -124,7 +124,7 @@ class MainFragment : Fragment(), OnMainClickListener {
         _binding = null
     }
 
-    override fun onMainItemClick(item: Records?, position: Int) {
+    override fun onMainItemClick(item: RecordsGroup?, position: Int) {
         findNavController().navigate(R.id.action_to_main_to_groupPageFragment)
     }
 }

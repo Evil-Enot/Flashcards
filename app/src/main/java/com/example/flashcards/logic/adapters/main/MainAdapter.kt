@@ -14,7 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainAdapter(
-    private val userGroups: ArrayList<Records?>,
+    private val userGroups: ArrayList<RecordsGroup?>,
     private var clickListener: OnMainClickListener,
     private val context: Context?
 ) : RecyclerView.Adapter<MainViewHolder>() {
@@ -69,7 +69,7 @@ class MainAdapter(
         //--------------------------------------------//
         // Вывод автора группы в зависимости от того, кто автор - сообщество или пользователь
         if (userGroups[position]?.group?.authorUserId.toString() != "0") {
-            val getUser = UserInfoRequest(
+            val getUser = UserRequest(
                 Token(userId.toLong(), userToken),
                 userGroups[position]?.group?.authorUserId!!
             )

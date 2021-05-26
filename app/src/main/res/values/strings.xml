@@ -38,8 +38,8 @@
     <string name="group_date">Last visit:</string>
     <string name="group_name_title">Group name:</string>
     <string name="group_tags_title">Tags:</string>
-    <string name="group_max_points_title">Max points:</string>
-    <string name="group_last_visit_title">Last visit:</string>
+    <string name="group_my_answer_title">My answer</string>
+    <string name="group_result_title">Result:</string>
     <string name="add_group_select_an_action_title">Select an action:</string>
     <string name="create_new_group_button">Create new group</string>
     <string name="find_a_group_button">Find a group</string>
@@ -58,7 +58,7 @@
     <string name="submit_answer">Submit answer</string>
     <string name="your_answer">Your answer:</string>
     <string name="next_question">Next question</string>
-    <string name="my_points">My points:</string>
+    <string name="response_time">Answer time:</string>
     <string name="submit_callback">Submit callback</string>
     <string name="describe_your_problem_in_detail">Describe your problem in detail</string>
     <string name="friend_name">Friend name:</string>
