@@ -30,10 +30,10 @@ class UserGroupsAdapter(
 
     override fun onBindViewHolder(holder: UserGroupsViewHolder, position: Int) {
         holder.groupName?.text = userGroupsList[position].name
-        holder.groupAuthor?.text = userGroupsList[position].author
-        holder.groupFlags?.text = userGroupsList[position].flags
-        holder.groupMaxPoints?.text = userGroupsList[position].maxPoints
-        holder.groupLastVisit?.text = userGroupsList[position].date
+//        holder.groupAuthor?.text = userGroupsList[position].author
+//        holder.groupFlags?.text = userGroupsList[position].flags
+//        holder.groupMaxPoints?.text = userGroupsList[position].maxPoints
+//        holder.groupLastVisit?.text = userGroupsList[position].date
 
         holder.initializeUserGroups(userGroupsList[position], clickListener)
 

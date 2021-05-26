@@ -1,9 +1,13 @@
 package com.example.flashcards.model
 
 data class GroupInfo(
-    var name: String,
-    var author: String,
-    var date: String,
-    var flags: String,
-    var maxPoints: String
+    val id: Long,
+    val name: String,
+    val parentId: Long,
+    val maxPoints: Long,
+    val visibility: Long,
+    val flags: String,
+    val isLeaf: Boolean,
+    val authorUserId: Long,
+    val authorCommunityId: Long,
 )

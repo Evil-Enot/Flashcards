@@ -64,4 +64,10 @@
     <string name="friend_name">Friend name:</string>
     <string name="enter_friend_s_e_mail">Enter friend\'s e-mail:</string>
     <string name="add_friend">Add friend</string>
+    <string name="name">Name:</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="status">Status:</string>
+    <string name="level">Level:</string>
+    <string name="you_are_not_subscribed_to_any_group">You are not subscribed to any group</string>
+    <string name="you_can_find_or_create_a_group_on_the_group_page">You can find or create a group on the group page</string>
 </resources>

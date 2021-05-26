@@ -1,13 +1,58 @@
 package com.example.flashcards.ui.profile
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.flashcards.api.WebClient
+import com.example.flashcards.model.Token
 import com.example.flashcards.model.UserInfo
+import com.example.flashcards.model.UserInfoRequest
+import com.example.flashcards.model.UserInfoResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class ProfileViewModel : ViewModel() {
-    private val _userInfo = MutableLiveData<UserInfo>().apply {
-       value = UserInfo("My name", "My email", "My status", "My level")
+class ProfileViewModel() : ViewModel() {
+    private val webClient = WebClient().getApi()
+
+    // Не работает
+    // Разобраться и сделать по-нормальному
+    fun getUserInfo(userId: String, userToken: String): UserInfo {
+        val getUser = UserInfoRequest(
+            Token(userId.toLong(), userToken),
+            userId.toLong(),
+        )
+
+        val callUser = webClient.getUser(getUser)
+
+        var userInfo = UserInfo(null, null, null, null, null, null)
+
+        callUser.enqueue(object : Callback<UserInfoResponse> {
+            override fun onResponse(
+                call: Call<UserInfoResponse>,
+                response: Response<UserInfoResponse>
+            ) {
+                val userName = response.body()?.user?.name.toString()
+                val userTimestamp = response.body()?.user?.regTimestamp
+                val userEmail = response.body()?.user?.email
+                val userStatus = response.body()?.user?.status
+                val userLevel = response.body()?.user?.level
+                userInfo = UserInfo(
+                    userId.toLong(),
+                    userName,
+                    userEmail,
+                    userTimestamp!!,
+                    userStatus,
+                    userLevel
+                )
+                Log.i("test", "success $userInfo")
+            }
+
+            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                Log.i("test", "error $t")
+            }
+        })
+
+        return userInfo
+
     }
-    val userInfo: LiveData<UserInfo> = _userInfo
 }

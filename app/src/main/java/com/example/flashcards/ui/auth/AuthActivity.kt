@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
@@ -15,6 +16,7 @@ import com.example.flashcards.api.WebClient
 import com.example.flashcards.model.AuthRequest
 import com.example.flashcards.model.AuthResponse
 import com.example.flashcards.model.Token
+import com.example.flashcards.type.ErrorCodeType
 import com.example.flashcards.ui.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +34,9 @@ class AuthActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button)
         val register = findViewById<TextView>(R.id.register)
 
-        val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        val userIdSave = getSharedPreferences("UserId", Context.MODE_PRIVATE)
+        val userTokenSave = getSharedPreferences("UserToken", Context.MODE_PRIVATE)
 
         button.setOnClickListener {
 
@@ -58,15 +62,27 @@ class AuthActivity : AppCompatActivity() {
                     call: Call<AuthResponse>,
                     response: Response<AuthResponse>
                 ) {
+                    if (response.body()?.status?.success == true) {
 
-                    val userToken = response.body()?.token?.token.toString()
-                    val userId = response.body()?.token?.userId.toString()
+                        val userToken = response.body()?.token?.token.toString()
+                        val userId = response.body()?.token?.userId.toString()
 
-                    sharedPreferences.edit().putString("UserToken", userToken).apply()
-                    sharedPreferences.edit().putString("UserId", userId).apply()
-                    sharedPreferences.edit().putBoolean("Success", true).apply()
+                        Log.i("Testing", response.body().toString())
 
-                    startApp()
+                        userTokenSave.edit().putString("UserToken", userToken).apply()
+                        userIdSave.edit().putString("UserId", userId).apply()
+                        auth.edit().putBoolean("Success", true).apply()
+
+                        startApp()
+                    } else {
+                        val message: String
+                        message = when (response.body()?.status?.errorCode) {
+                            ErrorCodeType.LOGIN_PASSWORD_INCORRECT -> response.body()?.status?.message.toString()
+                            else -> "Error"
+                        }
+                        Toast.makeText(this@AuthActivity, message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
 
                 override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
