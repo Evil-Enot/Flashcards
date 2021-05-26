@@ -1,81 +1,183 @@
 package com.example.flashcards.ui.profile
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
-import com.example.flashcards.model.CommunityInfo
-import com.example.flashcards.model.GroupInfo
+import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.FragmentProfileBinding
 import com.example.flashcards.logic.adapters.profile.CommunitiesAdapter
+import com.example.flashcards.logic.adapters.profile.EmptyGroupsAdapter
 import com.example.flashcards.logic.adapters.profile.GroupsAdapter
 import com.example.flashcards.logic.interfaces.profile.OnCommunityClickListener
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
+import com.example.flashcards.model.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListener {
 
-    private var groupList: ArrayList<GroupInfo> = ArrayList()
     private var communityList: ArrayList<CommunityInfo> = ArrayList()
 
     private lateinit var profileViewModel: ProfileViewModel
     private var _binding: FragmentProfileBinding? = null
 
+    private val webClient = WebClient().getApi()
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //--------------------------------------------//
+        // Получение токена и id пользователя
+
+        val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
+        val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
+        var userToken = ""
+        var userId = ""
+
+        if (userTokenSave?.contains("UserToken") == true) {
+            userToken = userTokenSave.getString("UserToken", "").toString()
+        }
+        if (userIdSave?.contains("UserId") == true) {
+            userId = userIdSave.getString("UserId", "").toString()
+        }
+
+        //--------------------------------------------//
+
+        //--------------------------------------------//
+        // Получение общих данных и т.д.
+
+        val groupList: ArrayList<Records?> = ArrayList()
+
         profileViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
 
-        addGroups()
-        addCommunities()
+        //--------------------------------------------//
 
-        val userGroup: RecyclerView = binding.userGroupsRw
-        userGroup.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        userGroup.adapter = GroupsAdapter(groupList, this)
+        //--------------------------------------------//
+        // Получение данных пользователя
+
+        val userNameField: TextView = binding.userName
+        val userEmailField: TextView = binding.userEmail
+        val userStatusField: TextView = binding.userStatus
+        val userLevelField: TextView = binding.userLevel
+
+        val getUser = UserInfoRequest(
+            Token(userId.toLong(), userToken),
+            userId.toLong(),
+        )
+
+        val callUser = webClient.getUser(getUser)
+
+        callUser.enqueue(object : Callback<UserInfoResponse> {
+            override fun onResponse(
+                call: Call<UserInfoResponse>,
+                response: Response<UserInfoResponse>
+            ) {
+                val userName = response.body()?.user?.name.toString()
+                val userEmail = response.body()?.user?.email
+                val userStatus = response.body()?.user?.status
+                val userLevel = response.body()?.user?.level
+
+                userNameField.text = userName
+                userEmailField.text = userEmail
+                if (userStatus.toString().isEmpty()) {
+                    userStatusField.text = "Without status"
+                } else {
+                    userStatusField.text = userStatus
+                }
+                userLevelField.text = userLevel.toString()
+            }
+
+            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                Log.i("test", "error $t")
+            }
+        })
+
+        //--------------------------------------------//
+
+        //--------------------------------------------//
+        // Получение групп пользователя
+
+        val userGroupRV: RecyclerView = binding.userGroupsRw
+
+        val userGroups = UserGroupsRequest(
+            Token(userId.toLong(), userToken),
+            userId.toLong(),
+        )
+
+        val callUserGroups = webClient.getUserGroups(userGroups)
+        callUserGroups.enqueue(object : Callback<UserGroupsResponse> {
+            override fun onResponse(
+                call: Call<UserGroupsResponse>,
+                response: Response<UserGroupsResponse>
+            ) {
+                if (response.body()?.records?.size.toString() != "null") {
+                    for (i in 0 until response.body()?.records!!.size) {
+                        val userGroup = response.body()?.records?.get(i)
+                        groupList.add(userGroup)
+                    }
+                }
+                printGroups(userGroupRV, groupList)
+            }
+
+            override fun onFailure(call: Call<UserGroupsResponse>, t: Throwable) {
+                Log.i("test", "error $t")
+            }
+        })
+
+        //--------------------------------------------//
+
+        //--------------------------------------------//
+        // Получение сообществ пользователя
+
+        addCommunities()
 
         val userCommunities: RecyclerView = binding.userCommunitiesRw
         userCommunities.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         userCommunities.adapter = CommunitiesAdapter(communityList, this)
 
-        val userName: TextView = binding.userName
-        val userEmail: TextView = binding.userEmail
-        val userStatus: TextView = binding.userStatus
-        val userLevel: TextView = binding.userLevel
-
-        profileViewModel.userInfo.observe(viewLifecycleOwner, {
-            userName.text = it.name
-            userEmail.text = it.email
-            userStatus.text = it.status
-            userLevel.text = it.level
-        })
+        //--------------------------------------------//
 
         return root
     }
 
-    private fun addGroups() {
-        groupList.add(GroupInfo("First", "Me", "12/03/2020", "", ""))
-        groupList.add(GroupInfo("Second", "He", "10/09/2017", "", ""))
-        groupList.add(GroupInfo("Third", "She", "21/12/2008", "", ""))
-        groupList.add(GroupInfo("Fourth", "We", "16/01/2066", "", ""))
-        groupList.add(GroupInfo("Fifth", "They", "22/07/2345", "", ""))
+    // Вывод групп пользователя
+    private fun printGroups(userGroupRV: RecyclerView, groupList: ArrayList<Records?>) {
+        Log.i("test", "success $groupList")
+        if (groupList.isEmpty()) {
+            userGroupRV.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            userGroupRV.adapter = EmptyGroupsAdapter()
+        } else {
+            userGroupRV.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            userGroupRV.adapter = GroupsAdapter(groupList, this, context)
+        }
     }
 
     private fun addCommunities() {
@@ -91,7 +193,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         _binding = null
     }
 
-    override fun onGroupItemClick(item: GroupInfo, position: Int) {
+    override fun onGroupItemClick(item: Records?, position: Int) {
         findNavController().navigate(R.id.action_to_profile_to_groupPageFragment)
 //        intent.putExtra("GroupName", item.name)
 //        intent.putExtra("GroupAuthor", item.author)

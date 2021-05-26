@@ -135,7 +135,9 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun auth(login: String, password: String) {
-        val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        val userIdSave = getSharedPreferences("UserId", Context.MODE_PRIVATE)
+        val userTokenSave = getSharedPreferences("UserToken", Context.MODE_PRIVATE)
 
         val userAuth = AuthRequest(
             Token(null, ""),
@@ -150,9 +152,9 @@ class RegisterActivity : AppCompatActivity() {
                 val userToken = response.body()?.token?.token.toString()
                 val userId = response.body()?.token?.userId.toString()
 
-                sharedPreferences.edit().putString("UserToken", userToken).apply()
-                sharedPreferences.edit().putString("UserId", userId).apply()
-                sharedPreferences.edit().putBoolean("Success", true).apply()
+                userTokenSave.edit().putString("UserToken", userToken).apply()
+                userIdSave.edit().putString("UserId", userId).apply()
+                auth.edit().putBoolean("Success", true).apply()
                 startActivity()
             }
 

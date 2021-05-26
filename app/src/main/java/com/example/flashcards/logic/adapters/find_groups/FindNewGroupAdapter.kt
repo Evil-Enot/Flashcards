@@ -29,9 +29,9 @@ class FindNewGroupAdapter(
 
     override fun onBindViewHolder(holder: FindNewGroupViewHolder, position: Int) {
         holder.groupName?.text = groupsList[position].name
-        holder.groupAuthor?.text = groupsList[position].author
+        holder.groupAuthor?.text = groupsList[position].authorUserId.toString()
         holder.groupFlags?.text = groupsList[position].flags
-        holder.groupMaxPoints?.text = groupsList[position].maxPoints
+        holder.groupMaxPoints?.text = groupsList[position].maxPoints.toString()
 
         holder.initializeFindNewGroup(groupsList[position], clickListener)
     }

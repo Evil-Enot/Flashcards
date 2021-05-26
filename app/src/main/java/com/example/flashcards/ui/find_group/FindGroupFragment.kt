@@ -59,11 +59,11 @@ class FindGroupFragment : Fragment(), OnFindGroupsClickListener {
     }
 
     private fun addGroups() {
-        groupsList.add(GroupInfo("First", "Me", "12/03/2020", "wow", "123"))
-        groupsList.add(GroupInfo("Second", "He", "10/09/2017", "new", "2355"))
-        groupsList.add(GroupInfo("Third", "She", "21/12/2008", "lol", "644357"))
-        groupsList.add(GroupInfo("Fourth", "We", "16/01/2066", "kek", "543235"))
-        groupsList.add(GroupInfo("Fifth", "They", "22/07/2345", "good", "87986"))
+//        groupsList.add(GroupInfo("First", "Me", "12/03/2020", "wow", "123"))
+//        groupsList.add(GroupInfo("Second", "He", "10/09/2017", "new", "2355"))
+//        groupsList.add(GroupInfo("Third", "She", "21/12/2008", "lol", "644357"))
+//        groupsList.add(GroupInfo("Fourth", "We", "16/01/2066", "kek", "543235"))
+//        groupsList.add(GroupInfo("Fifth", "They", "22/07/2345", "good", "87986"))
     }
 
     override fun onDestroyView() {

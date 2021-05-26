@@ -1,8 +1,12 @@
 package com.example.flashcards.model
 
+import java.sql.Timestamp
+
 data class UserInfo(
-    var name: String,
-    var email: String,
-    var status: String,
-    var level: String
+    val id: Long?,
+    val name: String?,
+    val email: String?,
+    val regTimestamp: Timestamp?,
+    val status: String?,
+    val level: Long?
 )

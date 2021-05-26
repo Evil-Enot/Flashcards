@@ -3,6 +3,7 @@ package com.example.flashcards.ui.start_page
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
@@ -15,9 +16,11 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.start_page)
 
-        val sharedPreferences = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
+        auth.edit().clear().apply()
 
-        if (sharedPreferences.getBoolean("Success", false)) {
+        if (auth.getBoolean("Success", false)) {
+            Log.i("Testing", auth.getString("UserId", "").toString())
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {

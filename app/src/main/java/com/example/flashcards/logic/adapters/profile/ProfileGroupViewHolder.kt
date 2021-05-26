@@ -2,9 +2,9 @@ package com.example.flashcards.logic.adapters.profile
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
+import com.example.flashcards.model.Records
 
 class ProfileGroupViewHolder(
     binding: ItemProfileRecyclerviewGroupBinding
@@ -12,9 +12,9 @@ class ProfileGroupViewHolder(
 
     var groupName: TextView? = binding.groupNameProfile
     var groupAuthor: TextView? = binding.groupAuthor
-    var groupFlags: TextView? = binding.groupDate
+    var groupDate: TextView? = binding.groupDate
 
-    fun initializeGroups(item: GroupInfo, action: OnGroupClickListener) {
+    fun initializeGroups(item: Records?, action: OnGroupClickListener) {
         itemView.setOnClickListener {
             action.onGroupItemClick(item, absoluteAdapterPosition)
         }

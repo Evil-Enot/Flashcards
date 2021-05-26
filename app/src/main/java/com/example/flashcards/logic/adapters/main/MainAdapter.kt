@@ -24,10 +24,10 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         holder.groupName?.text = userGroups[position].name
-        holder.groupAuthor?.text = userGroups[position].author
+        holder.groupAuthor?.text = userGroups[position].authorUserId.toString()
         holder.groupFlags?.text = userGroups[position].flags
-        holder.groupMaxPoints?.text = userGroups[position].maxPoints
-        holder.groupLastVisit?.text = userGroups[position].date
+        holder.groupMaxPoints?.text = userGroups[position].maxPoints.toString()
+//        holder.groupLastVisit?.text = userGroups[position].
 
         holder.initializeUserGroups(userGroups[position], clickListener)
     }
