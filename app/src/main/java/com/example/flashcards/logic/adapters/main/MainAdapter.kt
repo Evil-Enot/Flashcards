@@ -9,6 +9,9 @@ import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.main.OnMainClickListener
 import com.example.flashcards.model.*
+import com.example.flashcards.model.groups.RecordsGroup
+import com.example.flashcards.model.user.UserInfoResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,7 +54,6 @@ class MainAdapter(
 
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -63,7 +65,6 @@ class MainAdapter(
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//

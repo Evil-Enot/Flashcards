@@ -13,6 +13,10 @@ import com.example.flashcards.MainActivity
 import com.example.flashcards.R
 import com.example.flashcards.api.WebClient
 import com.example.flashcards.model.*
+import com.example.flashcards.model.auth.AuthApiResponse
+import com.example.flashcards.model.auth.AuthRequest
+import com.example.flashcards.model.auth.AuthResponse
+import com.example.flashcards.model.registration.RegistrationRequest
 import com.example.flashcards.type.DialogType
 import com.example.flashcards.type.ErrorCodeType
 import retrofit2.Call

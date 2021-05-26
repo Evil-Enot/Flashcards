@@ -9,6 +9,9 @@ import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
 import com.example.flashcards.model.*
+import com.example.flashcards.model.groups.RecordsGroup
+import com.example.flashcards.model.user.UserInfoResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,7 +47,6 @@ class GroupsAdapter(
 
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -56,7 +58,6 @@ class GroupsAdapter(
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//

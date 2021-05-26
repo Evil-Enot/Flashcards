@@ -11,6 +11,9 @@ import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
 import com.example.flashcards.model.*
+import com.example.flashcards.model.groups.RecordsGroup
+import com.example.flashcards.model.user.UserInfoResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,7 +58,6 @@ class UserGroupsAdapter(
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//

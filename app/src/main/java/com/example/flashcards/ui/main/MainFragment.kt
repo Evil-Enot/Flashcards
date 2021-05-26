@@ -17,10 +17,10 @@ import com.example.flashcards.databinding.FragmentMainBinding
 import com.example.flashcards.logic.adapters.main.MainAdapter
 import com.example.flashcards.logic.adapters.profile.EmptyGroupsAdapter
 import com.example.flashcards.logic.interfaces.main.OnMainClickListener
-import com.example.flashcards.model.RecordsGroup
+import com.example.flashcards.model.groups.RecordsGroup
 import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserRequest
-import com.example.flashcards.model.UserGroupsResponse
+import com.example.flashcards.model.user.UserRequest
+import com.example.flashcards.model.history.UserGroupsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,9 +43,10 @@ class MainFragment : Fragment(), OnMainClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -57,7 +58,6 @@ class MainFragment : Fragment(), OnMainClickListener {
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//
@@ -68,12 +68,13 @@ class MainFragment : Fragment(), OnMainClickListener {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        userGroupsList.clear()
+
         //--------------------------------------------//
 
 
         //--------------------------------------------//
         // Получение групп пользователя
-
         val userGroupsRV: RecyclerView = binding.mainFeed
 
         val userGroups = UserRequest(
@@ -100,7 +101,6 @@ class MainFragment : Fragment(), OnMainClickListener {
                 Log.i("test", "error $t")
             }
         })
-
         //--------------------------------------------//
 
         return root
@@ -125,6 +125,8 @@ class MainFragment : Fragment(), OnMainClickListener {
     }
 
     override fun onMainItemClick(item: RecordsGroup?, position: Int) {
+        val groupIdSave = context?.getSharedPreferences("GroupId", Context.MODE_PRIVATE)
+        groupIdSave?.edit()?.putString("GroupId", item?.group?.id.toString())?.apply()
         findNavController().navigate(R.id.action_to_main_to_groupPageFragment)
     }
 }

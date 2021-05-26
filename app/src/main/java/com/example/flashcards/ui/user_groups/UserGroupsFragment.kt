@@ -18,10 +18,10 @@ import com.example.flashcards.databinding.FragmentUserGroupsBinding
 import com.example.flashcards.logic.adapters.profile.EmptyGroupsAdapter
 import com.example.flashcards.logic.adapters.user_groups.UserGroupsAdapter
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
-import com.example.flashcards.model.RecordsGroup
+import com.example.flashcards.model.groups.RecordsGroup
 import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserGroupsResponse
-import com.example.flashcards.model.UserRequest
+import com.example.flashcards.model.history.UserGroupsResponse
+import com.example.flashcards.model.user.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,9 +44,9 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         //--------------------------------------------//
         // Получение токена и id пользователя
-
         val userIdSave = context?.getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = context?.getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         var userToken = ""
@@ -58,7 +58,6 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
         if (userIdSave?.contains("UserId") == true) {
             userId = userIdSave.getString("UserId", "").toString()
         }
-
         //--------------------------------------------//
 
         //--------------------------------------------//
@@ -68,13 +67,11 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
 
         _binding = FragmentUserGroupsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         //--------------------------------------------//
 
 
         //--------------------------------------------//
         // Получение групп пользователя
-
         val userGroupsRV: RecyclerView = binding.userGroups
 
         val userGroups = UserRequest(
@@ -101,7 +98,6 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
                 Log.i("test", "error $t")
             }
         })
-
         //--------------------------------------------//
 
         return root
@@ -149,6 +145,8 @@ class UserGroupsFragment : Fragment(), OnUserGroupsClickListener {
     }
 
     override fun onUserGroupsItemClick(item: RecordsGroup?, position: Int) {
+        val groupIdSave = context?.getSharedPreferences("GroupId", Context.MODE_PRIVATE)
+        groupIdSave?.edit()?.putString("GroupId", item?.group?.id.toString())?.apply()
         findNavController().navigate(R.id.action_to_user_groups_to_groupPageFragment)
     }
 }

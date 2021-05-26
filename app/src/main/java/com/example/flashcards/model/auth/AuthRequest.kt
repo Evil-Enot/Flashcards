@@ -1,4 +1,6 @@
-package com.example.flashcards.model
+package com.example.flashcards.model.auth
+
+import com.example.flashcards.model.Token
 
 data class AuthRequest(
     val token: Token,

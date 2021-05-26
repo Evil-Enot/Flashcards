@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.QAInfo
+import com.example.flashcards.model.cards.QAInfo
 import com.example.flashcards.databinding.FragmentAddGroupCreateBinding
 import com.example.flashcards.databinding.FragmentAddNewGroupCreateQaBinding
 import com.example.flashcards.logic.adapters.add_groups.CreateNewGroupAdapter

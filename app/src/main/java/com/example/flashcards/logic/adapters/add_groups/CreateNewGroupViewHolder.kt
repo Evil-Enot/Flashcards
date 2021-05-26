@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.QAInfo
+import com.example.flashcards.model.cards.QAInfo
 import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
 
 class CreateNewGroupViewHolder(

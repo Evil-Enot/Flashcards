@@ -7,7 +7,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.databinding.ItemHistoryBinding
 import com.example.flashcards.logic.interfaces.history.OnHistoryClickListener
-import com.example.flashcards.model.RecordsHistory
+import com.example.flashcards.model.history.RecordsHistory
 
 class HistoryAdapter(
     private val userHistory: ArrayList<RecordsHistory?>,

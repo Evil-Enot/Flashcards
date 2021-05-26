@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
 import com.example.flashcards.api.WebClient
-import com.example.flashcards.model.AuthRequest
-import com.example.flashcards.model.AuthResponse
+import com.example.flashcards.model.auth.AuthRequest
+import com.example.flashcards.model.auth.AuthResponse
 import com.example.flashcards.model.Token
 import com.example.flashcards.type.ErrorCodeType
 import com.example.flashcards.ui.register.RegisterActivity
