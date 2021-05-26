@@ -17,7 +17,7 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.start_page)
 
         val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
-        auth.edit().clear().apply()
+//        auth.edit().clear().apply()
 
         if (auth.getBoolean("Success", false)) {
             Log.i("Testing", auth.getString("UserId", "").toString())

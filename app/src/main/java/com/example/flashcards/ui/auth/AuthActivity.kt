@@ -67,7 +67,7 @@ class AuthActivity : AppCompatActivity() {
                         val userToken = response.body()?.token?.token.toString()
                         val userId = response.body()?.token?.userId.toString()
 
-                        Log.i("Testing", response.body().toString())
+                        Log.i("test", "success " + response.body().toString())
 
                         userTokenSave.edit().putString("UserToken", userToken).apply()
                         userIdSave.edit().putString("UserId", userId).apply()
@@ -75,8 +75,7 @@ class AuthActivity : AppCompatActivity() {
 
                         startApp()
                     } else {
-                        val message: String
-                        message = when (response.body()?.status?.errorCode) {
+                        val message: String = when (response.body()?.status?.errorCode) {
                             ErrorCodeType.LOGIN_PASSWORD_INCORRECT -> response.body()?.status?.message.toString()
                             else -> "Error"
                         }

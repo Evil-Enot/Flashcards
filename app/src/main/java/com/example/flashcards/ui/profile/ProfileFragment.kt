@@ -135,6 +135,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
                 call: Call<UserGroupsResponse>,
                 response: Response<UserGroupsResponse>
             ) {
+                Log.i("test", response.body()?.records?.size.toString())
                 if (response.body()?.records?.size.toString() != "null") {
                     for (i in 0 until response.body()?.records!!.size) {
                         val userGroup = response.body()?.records?.get(i)
