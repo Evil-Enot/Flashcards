@@ -2,9 +2,9 @@ package com.example.flashcards.logic.adapters.user_groups
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.GroupInfo
 import com.example.flashcards.databinding.ItemUserGroupsBinding
 import com.example.flashcards.logic.interfaces.user_groups.OnUserGroupsClickListener
+import com.example.flashcards.model.RecordsGroup
 
 class UserGroupsViewHolder(
     binding: ItemUserGroupsBinding
@@ -16,7 +16,7 @@ class UserGroupsViewHolder(
     var groupMaxPoints: TextView? = binding.groupMaxPointsItem
     var groupLastVisit: TextView? = binding.groupLastVisitItem
 
-    fun initializeUserGroups(item: GroupInfo, action: OnUserGroupsClickListener) {
+    fun initializeUserGroups(item: RecordsGroup?, action: OnUserGroupsClickListener) {
         itemView.setOnClickListener {
             action.onUserGroupsItemClick(item, absoluteAdapterPosition)
         }
