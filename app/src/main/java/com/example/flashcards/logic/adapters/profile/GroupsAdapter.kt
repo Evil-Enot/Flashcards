@@ -8,16 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.api.WebClient
 import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
-import com.example.flashcards.model.Records
-import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserInfoRequest
-import com.example.flashcards.model.UserInfoResponse
+import com.example.flashcards.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class GroupsAdapter(
-    private val groups: List<Records?>,
+    private val groups: List<RecordsGroup?>,
     private var clickListener: OnGroupClickListener,
     private val context: Context?
 ) :
@@ -65,7 +62,7 @@ class GroupsAdapter(
         //--------------------------------------------//
         // Вывод автора группы в зависимости от того, кто автор - сообщество или пользователь
         if (groups[position]?.group?.authorUserId.toString() != "0") {
-            val getUser = UserInfoRequest(
+            val getUser = UserRequest(
                 Token(userId.toLong(), userToken),
                 groups[position]?.group?.authorUserId!!
             )

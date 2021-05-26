@@ -3,10 +3,7 @@ package com.example.flashcards.ui.profile
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.flashcards.api.WebClient
-import com.example.flashcards.model.Token
-import com.example.flashcards.model.UserInfo
-import com.example.flashcards.model.UserInfoRequest
-import com.example.flashcards.model.UserInfoResponse
+import com.example.flashcards.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,7 +14,7 @@ class ProfileViewModel() : ViewModel() {
     // Не работает
     // Разобраться и сделать по-нормальному
     fun getUserInfo(userId: String, userToken: String): UserInfo {
-        val getUser = UserInfoRequest(
+        val getUser = UserRequest(
             Token(userId.toLong(), userToken),
             userId.toLong(),
         )

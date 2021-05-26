@@ -19,16 +19,16 @@
         app:layout_constraintTop_toTopOf="@+id/group_name" />
 
     <TextView
-        android:id="@+id/group_max_points_title"
+        android:id="@+id/group_my_answer_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/group_max_points_title"
+        android:text="@string/group_my_answer_title"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/group_max_points"
+        app:layout_constraintBottom_toBottomOf="@+id/group_my_answer"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/group_max_points" />
+        app:layout_constraintTop_toTopOf="@+id/group_my_answer" />
 
     <TextView
         android:id="@+id/group_flags_title"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/group_max_points"
+        android:id="@+id/group_my_answer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -84,7 +84,7 @@
         android:inputType="textCapSentences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/group_max_points" />
+        app:layout_constraintTop_toBottomOf="@+id/group_my_answer" />
 
 
     <Button

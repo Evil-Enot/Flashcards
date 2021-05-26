@@ -4,7 +4,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.databinding.ItemProfileRecyclerviewGroupBinding
 import com.example.flashcards.logic.interfaces.profile.OnGroupClickListener
-import com.example.flashcards.model.Records
+import com.example.flashcards.model.RecordsGroup
 
 class ProfileGroupViewHolder(
     binding: ItemProfileRecyclerviewGroupBinding
@@ -14,7 +14,7 @@ class ProfileGroupViewHolder(
     var groupAuthor: TextView? = binding.groupAuthor
     var groupDate: TextView? = binding.groupDate
 
-    fun initializeGroups(item: Records?, action: OnGroupClickListener) {
+    fun initializeGroups(item: RecordsGroup?, action: OnGroupClickListener) {
         itemView.setOnClickListener {
             action.onGroupItemClick(item, absoluteAdapterPosition)
         }

@@ -66,7 +66,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         //--------------------------------------------//
         // Получение общих данных и т.д.
 
-        val groupList: ArrayList<Records?> = ArrayList()
+        val groupList: ArrayList<RecordsGroup?> = ArrayList()
 
         profileViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
@@ -85,7 +85,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         val userStatusField: TextView = binding.userStatus
         val userLevelField: TextView = binding.userLevel
 
-        val getUser = UserInfoRequest(
+        val getUser = UserRequest(
             Token(userId.toLong(), userToken),
             userId.toLong(),
         )
@@ -124,7 +124,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
 
         val userGroupRV: RecyclerView = binding.userGroupsRw
 
-        val userGroups = UserGroupsRequest(
+        val userGroups = UserRequest(
             Token(userId.toLong(), userToken),
             userId.toLong(),
         )
@@ -168,7 +168,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
     }
 
     // Вывод групп пользователя
-    private fun printGroups(userGroupRV: RecyclerView, groupList: ArrayList<Records?>) {
+    private fun printGroups(userGroupRV: RecyclerView, groupList: ArrayList<RecordsGroup?>) {
         Log.i("test", "success $groupList")
         if (groupList.isEmpty()) {
             userGroupRV.layoutManager =
@@ -194,7 +194,7 @@ class ProfileFragment : Fragment(), OnGroupClickListener, OnCommunityClickListen
         _binding = null
     }
 
-    override fun onGroupItemClick(item: Records?, position: Int) {
+    override fun onGroupItemClick(item: RecordsGroup?, position: Int) {
         findNavController().navigate(R.id.action_to_profile_to_groupPageFragment)
 //        intent.putExtra("GroupName", item.name)
 //        intent.putExtra("GroupAuthor", item.author)
