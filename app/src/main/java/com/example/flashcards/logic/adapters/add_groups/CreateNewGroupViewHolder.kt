@@ -4,13 +4,12 @@ import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flashcards.model.cards.QAInfo
 import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
 
 class CreateNewGroupViewHolder(
     val context: Context,
     binding: ItemAddNewGroupCreateQaBinding,
-    groupQa: ArrayList<QAInfo>
+
 ) : RecyclerView.ViewHolder(binding.root) {
 
     var groupQuestion: TextView = binding.qaQuestionText
