@@ -95,6 +95,7 @@ class GroupCardFragment : Fragment() {
                 binding.nextQuestion.setOnClickListener {
                     randomQA = Random.nextInt(0, response.body()?.records!!.size)
                     question.text = response.body()?.records?.get(randomQA)?.params?.get("question")
+                    binding.cardAnswer.text.clear()
                 }
 
                 // Обработка нажатия кнопки отправки ответа

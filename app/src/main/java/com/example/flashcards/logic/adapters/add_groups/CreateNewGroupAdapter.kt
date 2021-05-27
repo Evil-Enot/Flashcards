@@ -10,13 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flashcards.R
-import com.example.flashcards.model.cards.QAInfo
-import com.example.flashcards.databinding.FragmentAddNewGroupCreateQaBinding
 import com.example.flashcards.databinding.ItemAddNewGroupCreateQaBinding
+import com.example.flashcards.model.groups_add.AddCard
 
 class CreateNewGroupAdapter(
     val context: Context?,
-    private var groupQa: ArrayList<QAInfo>
+    private var groupQa: ArrayList<AddCard>
 ) :
     RecyclerView.Adapter<CreateNewGroupAdapter.CreateNewGroupViewHolder>() {
 
@@ -31,8 +30,9 @@ class CreateNewGroupAdapter(
     }
 
     override fun onBindViewHolder(holder: CreateNewGroupViewHolder, position: Int) {
-        holder.groupQuestion.text = groupQa[position].question
-        holder.groupAnswer.text = groupQa[position].answer
+        holder.groupQuestion.text = groupQa[position].params.get("question")
+        holder.groupAnswer.text = groupQa[position].params.get("answer")
+        holder.groupTags.text = groupQa[position].flags
 
         holder.bind(groupQa[position])
     }
@@ -47,42 +47,58 @@ class CreateNewGroupAdapter(
 
         var groupQuestion: TextView = binding.qaQuestionText
         var groupAnswer: TextView = binding.qaAnswerText
+        var groupTags: TextView = binding.qaTagsText
         var menu: ImageView = binding.editQaItem
 
-        fun bind(item: QAInfo) {
+        fun bind(item: AddCard) {
             menu.setOnClickListener { popupMenu(it, item) }
         }
 
-        private fun popupMenu(view: View, item: QAInfo) {
+        private fun popupMenu(view: View, item: AddCard) {
             val popupMenus = android.widget.PopupMenu(context, view)
             popupMenus.inflate(R.menu.menu_qa)
             popupMenus.setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.editQA -> {
-                        val binding =
-                            FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
-                        val qaQuestion = binding.qaQuestion
-                        val qaAnswer = binding.qaAnswer
-
-                        AlertDialog.Builder(context)
-                            .setView(binding.root)
-                            .setPositiveButton("Ok") { dialog, _ ->
-                                item.question = qaQuestion.text.toString()
-                                item.answer = qaAnswer.text.toString()
-                                notifyDataSetChanged()
-                                Toast.makeText(context, "Card edited", Toast.LENGTH_SHORT)
-                                    .show()
-                                dialog.dismiss()
-                            }
-                            .setNegativeButton("Cancel") { dialog, _ ->
-                                dialog.dismiss()
-                            }
-                            .create()
-                            .show()
-
-                        true
-
-                    }
+//                    R.id.editQA -> {
+//                        val binding =
+//                            FragmentAddNewGroupCreateQaBinding.inflate(LayoutInflater.from(context))
+//                        val qaQuestion = binding.qaQuestion
+//                        val qaAnswer = binding.qaAnswer
+//                        val qaTags = binding.qaTag
+//                        val map = mutableMapOf<String, String>()
+//                        map.put("question", qaQuestion.text.toString())
+//                        map.put("answer", qaAnswer.text.toString())
+//                        AlertDialog.Builder(context)
+//                            .setView(binding.root)
+//                            .setPositiveButton("Ok") { dialog, _ ->
+//                                if (qaQuestion.text.toString().isEmpty() || qaAnswer.text.toString()
+//                                        .isEmpty() || qaTags.text.toString().isEmpty()
+//                                ) {
+//                                    Toast.makeText(
+//                                        context,
+//                                        "Fields must be full",
+//                                        Toast.LENGTH_SHORT
+//                                    )
+//                                        .show()
+//                                } else {
+//                                    item.params. = map[0]
+//                                    item.answer = qaAnswer.text.toString()
+//                                    item.tags = qaTags.text.toString()
+//                                    notifyDataSetChanged()
+//                                    Toast.makeText(context, "Card edited", Toast.LENGTH_SHORT)
+//                                        .show()
+//                                    dialog.dismiss()
+//                                }
+//                            }
+//                            .setNegativeButton("Cancel") { dialog, _ ->
+//                                dialog.dismiss()
+//                            }
+//                            .create()
+//                            .show()
+//
+//                        true
+//
+//                    }
                     R.id.delete -> {
                         AlertDialog.Builder(context)
                             .setTitle("Delete")
