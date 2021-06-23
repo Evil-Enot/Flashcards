@@ -28,7 +28,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register_page)
+        setContentView(R.layout.activity_register)
 
         val nameAndSurname = findViewById<EditText>(R.id.name_surname_field)
         val email = findViewById<EditText>(R.id.e_mail_field)

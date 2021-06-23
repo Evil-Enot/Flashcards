@@ -200,8 +200,8 @@ class CreateNewGroupFragment : Fragment() {
                         response.body()?.group!!.id
                     )
 
-                    val callAddGroup = webClient.addFindGroup(addNewGroup)
-                    callAddGroup.enqueue(object : Callback<AddGroupStatus> {
+                    val callFindGroup = webClient.addFindGroup(addNewGroup)
+                    callFindGroup.enqueue(object : Callback<AddGroupStatus> {
                         override fun onResponse(
                             call: Call<AddGroupStatus>,
                             response: Response<AddGroupStatus>

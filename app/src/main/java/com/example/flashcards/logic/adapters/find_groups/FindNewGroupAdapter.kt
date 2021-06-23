@@ -58,7 +58,7 @@ class FindNewGroupAdapter(
         if (groupsList[position].authorUserId.toString() != "0") {
             val getUser = UserRequest(
                 Token(userId.toLong(), userToken),
-                groupsList[position].authorUserId!!
+                groupsList[position].authorUserId
             )
 
             val callUser = webClient.getUser(getUser)

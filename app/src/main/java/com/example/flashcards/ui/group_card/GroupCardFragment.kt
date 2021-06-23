@@ -13,7 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.flashcards.api.WebClient
-import com.example.flashcards.databinding.GroupCardBinding
+import com.example.flashcards.databinding.FragmentGroupCardBinding
 import com.example.flashcards.model.Token
 import com.example.flashcards.model.cards.CardsResponse
 import com.example.flashcards.model.history.HistoryCommit
@@ -27,7 +27,7 @@ import kotlin.random.Random
 
 class GroupCardFragment : Fragment() {
     private lateinit var groupCardViewModel: GroupCardViewModel
-    private var _binding: GroupCardBinding? = null
+    private var _binding: FragmentGroupCardBinding? = null
 
     private val binding get() = _binding!!
 
@@ -64,7 +64,7 @@ class GroupCardFragment : Fragment() {
         groupCardViewModel =
             ViewModelProvider(this).get(GroupCardViewModel::class.java)
 
-        _binding = GroupCardBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupCardBinding.inflate(inflater, container, false)
         val root: View = binding.root
         //--------------------------------------------//
 

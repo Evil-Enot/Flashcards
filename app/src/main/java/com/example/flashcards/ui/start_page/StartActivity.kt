@@ -14,7 +14,7 @@ class StartActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.start_page)
+        setContentView(R.layout.activity_start)
 
         val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
 //        auth.edit().clear().apply()

@@ -27,7 +27,7 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.auth_page)
+        setContentView(R.layout.activity_auth)
 
         val login = findViewById<EditText>(R.id.login)
         val password = findViewById<EditText>(R.id.password)
