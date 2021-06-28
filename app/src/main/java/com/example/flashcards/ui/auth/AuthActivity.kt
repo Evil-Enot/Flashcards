@@ -2,22 +2,23 @@ package com.example.flashcards.ui.auth
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.example.flashcards.MainActivity
 import com.example.flashcards.R
 import com.example.flashcards.api.WebClient
+import com.example.flashcards.model.Token
 import com.example.flashcards.model.auth.AuthRequest
 import com.example.flashcards.model.auth.AuthResponse
-import com.example.flashcards.model.Token
 import com.example.flashcards.type.ErrorCodeType
 import com.example.flashcards.ui.register.RegisterActivity
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,25 +30,46 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
-        val login = findViewById<EditText>(R.id.login)
-        val password = findViewById<EditText>(R.id.password)
-        val button = findViewById<Button>(R.id.button)
+        val login = findViewById<TextInputEditText>(R.id.login)
+        val password = findViewById<TextInputEditText>(R.id.password)
+        val button = findViewById<Button>(R.id.authorize_btn)
         val register = findViewById<TextView>(R.id.register)
+
+        val tilLogin = findViewById<TextInputLayout>(R.id.til_login)
+        val tilPassword = findViewById<TextInputLayout>(R.id.til_password)
 
         val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
         val userIdSave = getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val userTokenSave = getSharedPreferences("UserToken", Context.MODE_PRIVATE)
 
+        login.addTextChangedListener {
+            tilLogin?.let {
+                it.isErrorEnabled = false
+                it.error = null
+            }
+        }
+
+        password.addTextChangedListener {
+            tilPassword?.let {
+                it.isErrorEnabled = false
+                it.error = null
+            }
+        }
+
         button.setOnClickListener {
 
             if (login.text.toString().isEmpty()) {
-                login.hint = getString(R.string.empty_field_error)
-                login.setHintTextColor(Color.RED)
+                tilLogin?.let {
+                    it.isErrorEnabled = true
+                    it.error = getString(R.string.empty_field_error)
+                }
             }
 
             if (password.text.toString().isEmpty()) {
-                password.hint = getString(R.string.empty_field_error)
-                password.setHintTextColor(Color.RED)
+                tilPassword?.let {
+                    it.isErrorEnabled = true
+                    it.error = getString(R.string.empty_field_error)
+                }
             }
 
             val userAuth = AuthRequest(

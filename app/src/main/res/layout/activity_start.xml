@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.start_page.StartActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+    <ImageView
+        android:id="@+id/imageView2"
+        style="@style/Authorize.Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/main_image"
+        android:src="@drawable/main_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

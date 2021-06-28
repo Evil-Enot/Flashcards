@@ -17,15 +17,17 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
 
         val auth = getSharedPreferences("AUTH", Context.MODE_PRIVATE)
-//        auth.edit().clear().apply()
+        auth.edit().clear().apply()
 
         if (auth.getBoolean("Success", false)) {
             Log.i("Testing", auth.getString("UserId", "").toString())
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         } else {
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

@@ -1,4 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //-------------- Main styles --------------//
+    <style name="Flashcards">
+        <item name="android:textColor">@color/default_text</item>
+        <item name="android:background">@color/background</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Flashcards.Title" parent="Flashcards">
+        <item name="android:textSize">@dimen/standard_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/standard_margin</item>
+    </style>
+
+    <style name="Flashcards.Button" parent="Flashcards">
+        <item name="android:textSize">@dimen/standard_test_size_small</item>
+        <item name="android:layout_marginTop">@dimen/standard_margin</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Flashcards.Field" parent="Flashcards">
+        <item name="android:textSize">@dimen/standard_text_size</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_marginEnd">@dimen/standard_margin_field</item>
+        <item name="android:layout_marginStart">@dimen/standard_margin_field</item>
+    </style>
+    //-----------------------------------------//
+
+    //---------- Registration styles ----------//
+    <style name="Registration" parent="Flashcards">
+        <item name="android:textSize">@dimen/standard_text_size_large</item>
+    </style>
+
+    <style name="Registration.Title" parent="Registration">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/standard_margin</item>
+        <item name="android:layout_marginStart">@dimen/standard_margin</item>
+    </style>
+    //-----------------------------------------//
+
+    //-------------- Auth styles --------------//
+    <style name="Authorize" parent="Flashcards">
+        <item name="android:textSize">@dimen/standard_text_size_large</item>
+    </style>
+
+    <style name="Authorize.Title" parent="Authorize">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+    </style>
+
+    <style name="Authorize.Info" parent="Authorize">
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+    </style>
+
+    <style name="Authorize.Image" parent="Authorize">
+        <item name="android:layout_marginTop">@dimen/standard_margin</item>
+    </style>
+    //-----------------------------------------//
+
 </resources>
